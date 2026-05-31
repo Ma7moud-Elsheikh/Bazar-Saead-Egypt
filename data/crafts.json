@@ -1,0 +1,86 @@
+[
+    {
+        "id": "1",
+        "slug": "pottery",
+        "name": { "ar": "الفخار", "en": "Pottery" },
+        "story": {
+            "ar": "منذ آلاف السنين، يشكّل الإنسان الطين ليصنع الحياة. فخار الصعيد يحمل ذاكرة النيل ودفء الأرض. كل قطعة تُخبّئ في طياتها قصة امرأة عجنت الطين بكفيها، ورجل أدار العجلة بإيقاع قلبه.",
+            "en": "For thousands of years, man has shaped clay to create life. Upper Egyptian pottery carries the memory of the Nile and the warmth of the earth. Every piece hides within its folds the story of a woman who kneaded clay with her palms, and a man who turned the wheel to the rhythm of his heart."
+        },
+        "region": { "ar": "قنا وأسوان", "en": "Qena and Aswan" },
+        "regionKey": "qena",
+        "coverImage": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=600&fit=crop&auto=format",
+        "ogImage": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&h=630&fit=crop&auto=format",
+        "animationPersonality": "pottery"
+    },
+    {
+        "id": "2",
+        "slug": "copper",
+        "name": { "ar": "النحاسيات", "en": "Copperwork" },
+        "story": {
+            "ar": "في الأزقة الضيقة لأسيوط، يدوي صوت المطرقة على النحاس كموسيقى قديمة لم تتوقف. الحرفي يرى في الصفيحة الذهبية نقشاً ينتظر أن يُحرَّر. يده تضرب بقوة، لكن قلبه يلمس برفق.",
+            "en": "In the narrow alleys of Asyut, the sound of hammer on copper rings like ancient music that never stopped. The craftsman sees in the golden sheet a pattern waiting to be freed. His hand strikes with force, but his heart touches gently."
+        },
+        "region": { "ar": "أسيوط", "en": "Asyut" },
+        "regionKey": "asyut",
+        "coverImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&auto=format",
+        "ogImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=630&fit=crop&auto=format",
+        "animationPersonality": "copper"
+    },
+    {
+        "id": "3",
+        "slug": "weaving",
+        "name": { "ar": "النسيج", "en": "Weaving" },
+        "story": {
+            "ar": "خيط يمشي من اليمين إلى اليسار، ثم يعود. تكرار لا يعني الرتابة، بل يعني التراكم، يعني البناء. النساجة في النوبة تُغني وهي تنسج، وأغنيتها تدخل في نسيج القماش.",
+            "en": "A thread walks from right to left, then returns. Repetition does not mean monotony, but accumulation, building. The weaver in Nubia sings while she weaves, and her song enters the fabric's weave."
+        },
+        "region": { "ar": "أسوان والنوبة", "en": "Aswan and Nubia" },
+        "regionKey": "aswan",
+        "coverImage": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&h=600&fit=crop&auto=format",
+        "ogImage": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&h=630&fit=crop&auto=format",
+        "animationPersonality": "weaving"
+    },
+    {
+        "id": "4",
+        "slug": "embroidery",
+        "name": { "ar": "التطريز", "en": "Embroidery" },
+        "story": {
+            "ar": "الإبرة تخترق القماش في هدوء، تاركةً خلفها أثراً من اللون. التطريز الصعيدي لغة بصرية اخترعتها المرأة لتقول ما لا يُقال. كل زهرة، كل طائر، كل هندسة — رسالة مشفّرة من الأمس إلى الغد.",
+            "en": "The needle pierces the fabric quietly, leaving behind a trace of color. Upper Egyptian embroidery is a visual language invented by women to say what cannot be said. Every flower, every bird, every geometry — a coded message from yesterday to tomorrow."
+        },
+        "region": { "ar": "سوهاج وقنا", "en": "Sohag and Qena" },
+        "regionKey": "sohag",
+        "coverImage": "https://images.unsplash.com/photo-1594938298603-c8148c4b4f7c?w=800&h=600&fit=crop&auto=format",
+        "ogImage": "https://images.unsplash.com/photo-1594938298603-c8148c4b4f7c?w=1200&h=630&fit=crop&auto=format",
+        "animationPersonality": "embroidery"
+    },
+    {
+        "id": "5",
+        "slug": "woodwork",
+        "name": { "ar": "الأعمال الخشبية", "en": "Woodwork" },
+        "story": {
+            "ar": "الخشب يقاوم، والحرفي يُصرّ. بين المطرقة والإزميل والخشب القاسي، تولد العلاقة. الخشب الأقصري المنحوت يحمل عبق التاريخ الفرعوني، وعيون الحرفيين التي رأت آلاف السنين.",
+            "en": "Wood resists, and the craftsman persists. Between hammer, chisel, and hard wood, a relationship is born. Luxor carved wood carries the scent of pharaonic history, and the eyes of craftsmen who witnessed thousands of years."
+        },
+        "region": { "ar": "الأقصر", "en": "Luxor" },
+        "regionKey": "luxor",
+        "coverImage": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&h=600&fit=crop&auto=format",
+        "ogImage": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1200&h=630&fit=crop&auto=format",
+        "animationPersonality": "woodwork"
+    },
+    {
+        "id": "6",
+        "slug": "glass",
+        "name": { "ar": "زجاج الفسيفساء", "en": "Mosaic Glass" },
+        "story": {
+            "ar": "الزجاج يكسر الضوء ليعيد توزيعه على الجدران. في المنيا، تحوّل النساء قطع الزجاج الصغيرة إلى قصائد بصرية. كل لون يحاور جاره، وكل فراغ يُكمّل شكلاً لم يتخيله أحد.",
+            "en": "Glass breaks light to redistribute it on walls. In Minya, women transform small pieces of glass into visual poems. Each color speaks to its neighbor, and each void completes a shape no one had imagined."
+        },
+        "region": { "ar": "المنيا", "en": "Minya" },
+        "regionKey": "minya",
+        "coverImage": "https://images.unsplash.com/photo-1513506003901-1e6a35f56c57?w=800&h=600&fit=crop&auto=format",
+        "ogImage": "https://images.unsplash.com/photo-1513506003901-1e6a35f56c57?w=1200&h=630&fit=crop&auto=format",
+        "animationPersonality": "glass"
+    }
+]

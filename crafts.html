@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>الحرف — بازار صعيد مصر</title>
+        <meta
+            name="description"
+            content="استكشف حرف صعيد مصر اليدوية: الفخار، النسيج، التطريز، النحاسيات، الأعمال الخشبية وزجاج الفسيفساء."
+        />
+        <meta property="og:site_name" content="بازار صعيد مصر" />
+        <meta property="og:title" content="الحرف — بازار صعيد مصر" />
+        <meta property="og:type" content="website" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+            media="print"
+            onload="this.media = 'all'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+            />
+        </noscript>
+        <link rel="stylesheet" href="css/shared.css" />
+        <link rel="canonical" href="https://bazarsa3eed.com/crafts.html" />
+        <meta
+            property="og:image"
+            content="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&h=630&fit=crop&auto=format"
+        />
+        <meta property="og:url" content="https://bazarsa3eed.com/crafts.html" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="بازار صعيد مصر" />
+        <meta name="theme-color" content="#B87333" />
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link" data-ar="انتقل للمحتوى" data-en="Skip to content">
+            انتقل للمحتوى
+        </a>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div id="cursor" aria-hidden="true"></div>
+        <div id="cursor-follower" aria-hidden="true"></div>
+        <div id="page-transition" aria-hidden="true"></div>
+        <header><nav id="navbar" aria-label="التنقل الرئيسي"></nav></header>
+        <div id="mobile-menu" role="dialog" aria-modal="true"></div>
+
+        <main id="main-content">
+            <section class="page-hero" aria-labelledby="page-h1">
+                <div class="page-hero-bg" aria-hidden="true"></div>
+                <div class="page-hero-content">
+                    <h1 id="page-h1" data-ar="الحرف التقليدية" data-en="Traditional Crafts">
+                        الحرف التقليدية
+                    </h1>
+                    <p
+                        data-ar="ست حرف أصيلة، ستة عوالم من الجمال والتاريخ والهوية."
+                        data-en="Six authentic crafts, six worlds of beauty, history, and identity."
+                    >
+                        ست حرف أصيلة، ستة عوالم من الجمال والتاريخ والهوية.
+                    </p>
+                </div>
+            </section>
+
+            <div class="crafts-section">
+                <div id="crafts-container">
+                    <div class="crafts-masonry">
+                        <div class="skeleton skeleton--craft-masonry"></div>
+                        <div
+                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"
+                        ></div>
+                        <div
+                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"
+                        ></div>
+                        <div class="skeleton skeleton--craft-masonry"></div>
+                        <div
+                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"
+                        ></div>
+                        <div
+                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer role="contentinfo"></footer>
+        <button id="audio-toggle" aria-label="الموسيقى المحيطة">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+                />
+            </svg>
+        </button>
+
+        <script src="js/shared.js"></script>
+        <script src="js/enhancements.js"></script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            async function loadCrafts() {
+                const container = document.getElementById('crafts-container');
+                try {
+                    const crafts = await fetch('data/crafts.json').then((r) => r.json());
+                    const lang = i18n.currentLang;
+                    container.innerHTML = `<div class="crafts-masonry">
+      ${crafts
+          .map(
+              (c, i) => `
+      <article class="craft-full-card" id="${c.slug}">
+        <a href="craft-single.html?slug=${c.slug}" aria-label="${c.name[lang]}">
+          <div class="craft-img-wrap">
+            <img src="${c.coverImage}" alt="${c.name[lang]}" loading="${i < 3 ? 'eager' : 'lazy'}"/>
+            <div class="craft-img-overlay">
+              <span data-ar="استكشف" data-en="Explore">${lang === 'ar' ? 'استكشف' : 'Explore'}</span>
+            </div>
+          </div>
+          <div class="craft-body">
+            <div class="craft-body-region" data-ar="${c.region.ar}" data-en="${c.region.en}">${c.region[lang]}</div>
+            <div class="craft-body-name" data-ar="${c.name.ar}" data-en="${c.name.en}">${c.name[lang]}</div>
+            <p class="craft-body-story" data-ar="${c.story.ar}" data-en="${c.story.en}">${c.story[lang]}</p>
+          </div>
+        </a>
+      </article>`
+          )
+          .join('')}
+    </div>`;
+
+                    initReveal();
+                    gsap.from('.crafts-masonry article', {
+                        opacity: 0,
+                        y: 50,
+                        duration: 0.7,
+                        stagger: 0.12,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform',
+                        scrollTrigger: { trigger: '.crafts-masonry', start: 'top 85%', once: true }
+                    });
+                    gsap.from('.craft-full-card', {
+                        opacity: 0,
+                        y: 60,
+                        duration: 0.7,
+                        stagger: 0.1,
+                        ease: 'power2.out',
+                        scrollTrigger: { trigger: '.crafts-masonry', start: 'top 85%', once: true }
+                    });
+
+                    // Jump to hash
+                    if (location.hash) {
+                        const el = document.querySelector(location.hash);
+                        if (el)
+                            setTimeout(
+                                () => el.scrollIntoView({ behavior: 'smooth', block: 'center' }),
+                                400
+                            );
+                    }
+
+                    window._onLangChange = (lang) => {
+                        crafts.forEach((c) => {
+                            const card = document.getElementById(c.slug);
+                            if (!card) return;
+                            card.querySelector('.craft-body-region').textContent = c.region[lang];
+                            card.querySelector('.craft-body-name').textContent = c.name[lang];
+                            card.querySelector('.craft-body-story').textContent = c.story[lang];
+                            card.querySelector('a').setAttribute('aria-label', c.name[lang]);
+                            const ov = card.querySelector('.craft-img-overlay span');
+                            if (ov) ov.textContent = lang === 'ar' ? 'استكشف' : 'Explore';
+                        });
+                    };
+                } catch (e) {
+                    container.innerHTML =
+                        '<p class="state-error state-error--padded">تعذّر تحميل البيانات</p>';
+                }
+            }
+            loadCrafts();
+        </script>
+    </body>
+</html>

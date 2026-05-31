@@ -1,0 +1,163 @@
+[
+  {
+    "id": "1",
+    "name": { "ar": "أم كلثوم حسن", "en": "Om Kalthoum Hassan" },
+    "phone": "+20 100 123 4567",
+    "region": { "ar": "أسوان", "en": "Aswan" },
+    "regionKey": "aswan",
+    "story": {
+      "ar": "تنسج أم كلثوم قصص النوبة بخيوط الفضة والذهب. ورثت فن النسيج عن جدتها منذ خمسة وعشرين عاماً، وكل قطعة تخرج من بين يديها تحمل روح النيل.",
+      "en": "Om Kalthoum weaves Nubian stories with silver and gold threads. She inherited the art of weaving from her grandmother twenty-five years ago, and every piece from her hands carries the spirit of the Nile."
+    },
+    "portrait": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop&auto=format",
+    "works": [
+      {
+        "id": "w1",
+        "name": { "ar": "سجادة نوبية", "en": "Nubian Rug" },
+        "price": 850,
+        "description": { "ar": "منسوجة يدوياً من الصوف الطبيعي بألوان النوبة", "en": "Hand-woven from natural wool in Nubian colors" },
+        "images": ["https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&h=600&fit=crop&auto=format"]
+      },
+      {
+        "id": "w2",
+        "name": { "ar": "وسادة مطرزة", "en": "Embroidered Cushion" },
+        "price": 320,
+        "description": { "ar": "قطيفة مطرزة بزخارف نوبية أصيلة", "en": "Velvet embroidered with authentic Nubian motifs" },
+        "images": ["https://images.unsplash.com/photo-1594938298603-c8148c4b4f7c?w=600&h=600&fit=crop&auto=format"]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": { "ar": "محمود إبراهيم", "en": "Mahmoud Ibrahim" },
+    "phone": "+20 102 234 5678",
+    "region": { "ar": "الأقصر", "en": "Luxor" },
+    "regionKey": "luxor",
+    "story": {
+      "ar": "في ورشته الصغيرة على ضفاف النيل، ينحت محمود الخشب منذ أربعين عاماً. تعلّم الحرفة في سن العاشرة وأصبح أشهر صانع أثاث في الأقصر.",
+      "en": "In his small workshop on the banks of the Nile, Mahmoud has been carving wood for forty years. He learned the craft at age ten and became the most renowned furniture maker in Luxor."
+    },
+    "portrait": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&auto=format",
+    "works": [
+      {
+        "id": "w3",
+        "name": { "ar": "كرسي فرعوني", "en": "Pharaonic Chair" },
+        "price": 2400,
+        "description": { "ar": "منحوت من خشب الأكاسيا بزخارف فرعونية", "en": "Carved from acacia wood with pharaonic motifs" },
+        "images": ["https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&h=600&fit=crop&auto=format"]
+      },
+      {
+        "id": "w4",
+        "name": { "ar": "إطار مرآة خشبي", "en": "Wooden Mirror Frame" },
+        "price": 780,
+        "description": { "ar": "إطار دائري محفور يدوياً بنقوش هندسية", "en": "Circular frame hand-carved with geometric patterns" },
+        "images": ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop&auto=format"]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": { "ar": "فاطمة علي", "en": "Fatima Ali" },
+    "phone": "+20 103 345 6789",
+    "region": { "ar": "سوهاج", "en": "Sohag" },
+    "regionKey": "sohag",
+    "story": {
+      "ar": "فاطمة حارسة تراث التطريز الصعيدي. أصابعها تحكي روايات لا توجد في أي كتاب. تُعلّم بنات قريتها هذا الفن الآيل للاندثار.",
+      "en": "Fatima is the guardian of Upper Egyptian embroidery heritage. Her fingers tell stories found in no book. She teaches girls in her village this nearly lost art."
+    },
+    "portrait": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&auto=format",
+    "works": [
+      {
+        "id": "w5",
+        "name": { "ar": "ثوب مطرز", "en": "Embroidered Dress" },
+        "price": 1200,
+        "description": { "ar": "فستان كتان مطرز يدوياً بخيوط ملونة", "en": "Hand-embroidered linen dress with colorful threads" },
+        "images": ["https://images.unsplash.com/photo-1594938298603-c8148c4b4f7c?w=600&h=600&fit=crop&auto=format"]
+      },
+      {
+        "id": "w6",
+        "name": { "ar": "منديل صعيدي", "en": "Upper Egyptian Scarf" },
+        "price": 280,
+        "description": { "ar": "منديل حرير مطرز بزخارف تقليدية", "en": "Silk scarf embroidered with traditional patterns" },
+        "images": ["https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&h=600&fit=crop&auto=format"]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": { "ar": "سيد الخولي", "en": "Sayed El-Kholy" },
+    "phone": "+20 104 456 7890",
+    "region": { "ar": "قنا", "en": "Qena" },
+    "regionKey": "qena",
+    "story": {
+      "ar": "يصنع سيد الفخار من طين نهر النيل منذ ثلاثة عقود. ورشته في قنا من أقدم ورش الفخار في الصعيد، وأعماله تزين بيوت الأمراء والفلاحين على حد سواء.",
+      "en": "Sayed makes pottery from Nile clay for three decades. His workshop in Qena is among the oldest in Upper Egypt, and his works adorn the homes of princes and farmers alike."
+    },
+    "portrait": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&auto=format",
+    "works": [
+      {
+        "id": "w7",
+        "name": { "ar": "قلة مياه", "en": "Water Jug (Qulla)" },
+        "price": 180,
+        "description": { "ar": "قلة طينية تُبرد الماء طبيعياً", "en": "Clay jug that naturally cools water" },
+        "images": ["https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&h=600&fit=crop&auto=format"]
+      },
+      {
+        "id": "w8",
+        "name": { "ar": "طقم أواني فخارية", "en": "Pottery Set" },
+        "price": 450,
+        "description": { "ar": "مجموعة متكاملة من الأواني الفخارية اليدوية", "en": "Complete set of handmade pottery vessels" },
+        "images": ["https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&h=600&fit=crop&auto=format"]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": { "ar": "نادية نصر", "en": "Nadia Nasr" },
+    "phone": "+20 105 567 8901",
+    "region": { "ar": "المنيا", "en": "Minya" },
+    "regionKey": "minya",
+    "story": {
+      "ar": "نادية تعمل في زجاج الفسيفساء منذ خمسة عشر عاماً. تلوّن كل قطعة من الزجاج بيديها، وتُركّبها بدقة متناهية لتصنع تحفاً ضوئية لا مثيل لها.",
+      "en": "Nadia has worked in mosaic glass for fifteen years. She colors each piece of glass by hand and assembles them with meticulous precision to create unparalleled light artworks."
+    },
+    "portrait": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&auto=format",
+    "works": [
+      {
+        "id": "w9",
+        "name": { "ar": "مصباح فسيفساء", "en": "Mosaic Lamp" },
+        "price": 950,
+        "description": { "ar": "مصباح زجاجي ملون يرسم أشكالاً ساحرة عند الإضاءة", "en": "Colorful glass lamp that casts magical patterns when lit" },
+        "images": ["https://images.unsplash.com/photo-1513506003901-1e6a35f56c57?w=600&h=600&fit=crop&auto=format"]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": { "ar": "حمدي سلامة", "en": "Hamdi Salama" },
+    "phone": "+20 106 678 9012",
+    "region": { "ar": "أسيوط", "en": "Asyut" },
+    "regionKey": "asyut",
+    "story": {
+      "ar": "يعمل حمدي في النحاس منذ صغره في أسيوط. يصنع الأواني والمزخرفات النحاسية بالطرق التقليدية القديمة، ويُصدّر أعماله إلى عشرين دولة.",
+      "en": "Hamdi has worked with copper since childhood in Asyut. He makes copper vessels and decorations using ancient traditional methods, exporting his works to twenty countries."
+    },
+    "portrait": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&auto=format",
+    "works": [
+      {
+        "id": "w10",
+        "name": { "ar": "صينية نحاسية", "en": "Copper Tray" },
+        "price": 650,
+        "description": { "ar": "صينية نحاسية منقوشة بزخارف إسلامية", "en": "Engraved copper tray with Islamic motifs" },
+        "images": ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop&auto=format"]
+      },
+      {
+        "id": "w11",
+        "name": { "ar": "إبريق نحاسي", "en": "Copper Teapot" },
+        "price": 420,
+        "description": { "ar": "إبريق نحاسي تقليدي مزخرف يدوياً", "en": "Traditional copper teapot manually decorated" },
+        "images": ["https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&h=600&fit=crop&auto=format"]
+      }
+    ]
+  }
+]

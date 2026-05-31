@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>عن البازار — بازار صعيد مصر</title>
+        <meta
+            name="description"
+            content="قصة بازار صعيد مصر — منصة تُحيي التراث الحرفي لصعيد مصر وتصله بالعالم."
+        />
+        <meta property="og:site_name" content="بازار صعيد مصر" />
+        <meta property="og:title" content="عن البازار — بازار صعيد مصر" />
+        <meta property="og:type" content="website" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+            media="print"
+            onload="this.media = 'all'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+            />
+        </noscript>
+        <link rel="stylesheet" href="css/shared.css" />
+        <link rel="canonical" href="https://bazarsa3eed.com/about.html" />
+        <meta
+            property="og:image"
+            content="https://images.unsplash.com/photo-1544441893-675973e31985?w=1200&h=630&fit=crop&auto=format"
+        />
+        <meta property="og:url" content="https://bazarsa3eed.com/about.html" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="بازار صعيد مصر" />
+        <meta name="theme-color" content="#B87333" />
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link" data-ar="انتقل للمحتوى" data-en="Skip to content">
+            انتقل للمحتوى
+        </a>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div id="cursor" aria-hidden="true"></div>
+        <div id="cursor-follower" aria-hidden="true"></div>
+        <div id="page-transition" aria-hidden="true"></div>
+        <header><nav id="navbar" aria-label="التنقل الرئيسي"></nav></header>
+        <div id="mobile-menu" role="dialog" aria-modal="true"></div>
+
+        <main id="main-content">
+            <!-- Hero -->
+            <section class="about-hero" aria-labelledby="about-h1">
+                <div class="about-hero-bg" aria-hidden="true"></div>
+                <div class="about-hero-inner">
+                    <div class="reveal about-hero-left">
+                        <span class="eyebrow" data-ar="قصتنا" data-en="Our Story">قصتنا</span>
+                        <h1 id="about-h1">
+                            <span data-ar="نحن نحمي" data-en="We Protect">نحن نحمي</span>
+                            <br />
+                            <em data-ar="ذاكرة مصر" data-en="Egypt's Memory">ذاكرة مصر</em>
+                        </h1>
+                    </div>
+                    <div class="reveal reveal-delay-2 about-hero-right">
+                        <p
+                            data-ar="في زمن يسرع فيه كل شيء، قررنا أن نُبطئ — لنسمع صوت المطرقة على النحاس، ولنرى الخيط يمشي في النسيج، ولنشمّ رائحة الطين الرطب. بازار صعيد مصر ليس فقط منصة تجارية، هو أرشيف حي لتراث إنساني لا يُعوَّض."
+                            data-en="In an age when everything accelerates, we chose to slow down — to hear the hammer on copper, watch thread move through weave, and smell the damp clay. Bazar Sa3eed Masr is not just a marketplace; it is a living archive of irreplaceable human heritage."
+                        >
+                            في زمن يسرع فيه كل شيء، قررنا أن نُبطئ — لنسمع صوت المطرقة على النحاس，
+                            ولنرى الخيط يمشي في النسيج، ولنشمّ رائحة الطين الرطب.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission -->
+            <section class="mission-section" aria-labelledby="mission-h2">
+                <div class="reveal">
+                    <span class="section-eyebrow" data-ar="رسالتنا" data-en="Our Mission">
+                        رسالتنا
+                    </span>
+                    <h2
+                        class="section-title"
+                        id="mission-h2"
+                        data-ar="لماذا نفعل هذا؟"
+                        data-en="Why Do We Do This?"
+                    >
+                        لماذا نفعل هذا؟
+                    </h2>
+                    <p
+                        class="section-subtitle"
+                        data-ar="ثلاثة مبادئ تقود كل قرار نتخذه."
+                        data-en="Three principles guide every decision we make."
+                    >
+                        ثلاثة مبادئ تقود كل قرار نتخذه.
+                    </p>
+                </div>
+                <div class="mission-cards">
+                    <div class="mission-card reveal reveal-delay-1">
+                        <div class="mission-icon" aria-hidden="true">🏺</div>
+                        <h3 data-ar="الحفاظ على التراث" data-en="Preserving Heritage">
+                            الحفاظ على التراث
+                        </h3>
+                        <p
+                            data-ar="كل حرفة على وشك الاندثار تحمل معرفة بشرية لا يمكن إعادة اختراعها. نعمل على توثيقها قبل فوات الأوان."
+                            data-en="Every craft near extinction carries human knowledge that cannot be reinvented. We document it before it's too late."
+                        >
+                            كل حرفة على وشك الاندثار تحمل معرفة بشرية لا يمكن إعادة اختراعها.
+                        </p>
+                    </div>
+                    <div class="mission-card reveal reveal-delay-2">
+                        <div class="mission-icon" aria-hidden="true">🤝</div>
+                        <h3 data-ar="تمكين الحرفيين" data-en="Empowering Artisans">
+                            تمكين الحرفيين
+                        </h3>
+                        <p
+                            data-ar="نربط الحرفي مباشرةً بالمشتري دون وسيط، لتصل القيمة الكاملة لصاحبها الحقيقي."
+                            data-en="We connect artisans directly with buyers, no middleman, so full value reaches those who truly deserve it."
+                        >
+                            نربط الحرفي مباشرةً بالمشتري دون وسيط، لتصل القيمة الكاملة لصاحبها
+                            الحقيقي.
+                        </p>
+                    </div>
+                    <div class="mission-card reveal reveal-delay-3">
+                        <div class="mission-icon" aria-hidden="true">🌍</div>
+                        <h3 data-ar="وصل مصر بالعالم" data-en="Connecting Egypt to the World">
+                            وصل مصر بالعالم
+                        </h3>
+                        <p
+                            data-ar="جمال صعيد مصر يستحق أن يُرى في كل مكان. نجعل هذه الأعمال متاحة لكل من يبحث عن الأصالة."
+                            data-en="The beauty of Upper Egypt deserves to be seen everywhere. We make these works available to all who seek authenticity."
+                        >
+                            جمال صعيد مصر يستحق أن يُرى في كل مكان.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Numbers -->
+            <div class="numbers-section" aria-label="إحصائيات البازار">
+                <div class="numbers-inner" role="list">
+                    <div class="number-item" role="listitem">
+                        <div class="number-val">50+</div>
+                        <div class="number-label" data-ar="حرفي موهوب" data-en="Talented Artisans">
+                            حرفي موهوب
+                        </div>
+                    </div>
+                    <div class="number-item" role="listitem">
+                        <div class="number-val">6</div>
+                        <div
+                            class="number-label"
+                            data-ar="حرف تقليدية"
+                            data-en="Traditional Crafts"
+                        >
+                            حرف تقليدية
+                        </div>
+                    </div>
+                    <div class="number-item" role="listitem">
+                        <div class="number-val">8</div>
+                        <div class="number-label" data-ar="محافظات صعيد" data-en="Governorates">
+                            محافظات صعيد
+                        </div>
+                    </div>
+                    <div class="number-item" role="listitem">
+                        <div class="number-val">∞</div>
+                        <div
+                            class="number-label"
+                            data-ar="سنة من التراث"
+                            data-en="Years of Heritage"
+                        >
+                            سنة من التراث
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heritage timeline -->
+            <section class="heritage-section" aria-labelledby="heritage-h2">
+                <div class="heritage-inner">
+                    <div class="reveal">
+                        <span
+                            class="section-eyebrow"
+                            data-ar="تاريخ الحرفة"
+                            data-en="History of Craft"
+                        >
+                            تاريخ الحرفة
+                        </span>
+                        <h2
+                            class="section-title section-title--light"
+                            id="heritage-h2"
+                            data-ar="آلاف السنين من الجمال"
+                            data-en="Thousands of Years of Beauty"
+                        >
+                            آلاف السنين من الجمال
+                        </h2>
+                    </div>
+                    <div class="timeline" role="list">
+                        <div class="timeline-item reveal" role="listitem">
+                            <div class="timeline-year" data-ar="3000 Q.M" data-en="3000 BC">
+                                3000 Q.M
+                            </div>
+                            <h3 data-ar="أوعية النيل الأولى" data-en="The First Nile Vessels">
+                                أوعية النيل الأولى
+                            </h3>
+                            <p
+                                data-ar="صنع الفراعنة أوائل الأواني الفخارية من طمي النيل، وكانت تُستخدم في أقدس الطقوس الدينية وتُرسم عليها أعمق المعتقدات."
+                                data-en="The pharaohs made the first pottery from Nile silt, used in the most sacred religious rites and bearing their deepest beliefs."
+                            >
+                                صنع الفراعنة أوائل الأواني الفخارية من طمي النيل، وكانت تُستخدم في
+                                أقدس الطقوس الدينية.
+                            </p>
+                        </div>
+                        <div class="timeline-item reveal reveal-delay-1" role="listitem">
+                            <div
+                                class="timeline-year"
+                                data-ar="العصر الإسلامي"
+                                data-en="Islamic Era"
+                            >
+                                العصر الإسلامي
+                            </div>
+                            <h3
+                                data-ar="فن الزخرفة الهندسية"
+                                data-en="The Art of Geometric Ornamentation"
+                            >
+                                فن الزخرفة الهندسية
+                            </h3>
+                            <p
+                                data-ar="أضاف الحرفيون المسلمون طبقة جديدة من الجمال الهندسي على الأعمال النحاسية والخشبية، لتُصبح لغة بصرية عالمية."
+                                data-en="Muslim artisans added a new layer of geometric beauty to copperwork and woodwork, becoming a universal visual language."
+                            >
+                                أضاف الحرفيون المسلمون طبقة جديدة من الجمال الهندسي على الأعمال
+                                النحاسية والخشبية.
+                            </p>
+                        </div>
+                        <div class="timeline-item reveal reveal-delay-2" role="listitem">
+                            <div
+                                class="timeline-year"
+                                data-ar="القرن العشرون"
+                                data-en="20th Century"
+                            >
+                                القرن العشرون
+                            </div>
+                            <h3
+                                data-ar="الحرفة تواجه التصنيع"
+                                data-en="Craft Faces Industrialization"
+                            >
+                                الحرفة تواجه التصنيع
+                            </h3>
+                            <p
+                                data-ar="مع الإنتاج الآلي، انحسرت الحرف اليدوية وتراجعت. لكن الجذور كانت عميقة جداً لتموت تماماً."
+                                data-en="With machine production, handcraft retreated. But the roots were too deep to die entirely."
+                            >
+                                مع الإنتاج الآلي، انحسرت الحرف اليدوية. لكن الجذور كانت عميقة جداً
+                                لتموت.
+                            </p>
+                        </div>
+                        <div class="timeline-item reveal reveal-delay-3" role="listitem">
+                            <div class="timeline-year" data-ar="اليوم" data-en="Today">اليوم</div>
+                            <h3 data-ar="بازار صعيد مصر" data-en="Bazar Sa3eed Masr">
+                                بازار صعيد مصر
+                            </h3>
+                            <p
+                                data-ar="نُعيد الكرامة لهذه الحرف ونؤمن بأن الأصالة لها سوق عالمي. كل عملية شراء هي رسالة: هذا التراث يستحق الاستمرار."
+                                data-en="We restore dignity to these crafts, believing authenticity has a global market. Every purchase is a message: this heritage deserves to continue."
+                            >
+                                نُعيد الكرامة لهذه الحرف ونؤمن بأن الأصالة لها سوق عالمي.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Values marquee -->
+            <div class="marquee-section" aria-hidden="true">
+                <div class="marquee-track">
+                    <span class="marquee-item">
+                        <span data-ar="الأصالة" data-en="Authenticity">الأصالة</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الجمال" data-en="Beauty">الجمال</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="التراث" data-en="Heritage">التراث</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الكرامة" data-en="Dignity">الكرامة</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الإبداع" data-en="Creativity">الإبداع</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الصناعة اليدوية" data-en="Handcraft">الصناعة اليدوية</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الأصالة" data-en="Authenticity">الأصالة</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الجمال" data-en="Beauty">الجمال</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="التراث" data-en="Heritage">التراث</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الكرامة" data-en="Dignity">الكرامة</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الإبداع" data-en="Creativity">الإبداع</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                    <span class="marquee-item">
+                        <span data-ar="الصناعة اليدوية" data-en="Handcraft">الصناعة اليدوية</span>
+                        <span class="marquee-sep"></span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <section class="about-cta" aria-labelledby="cta-h2">
+                <h2
+                    class="reveal"
+                    id="cta-h2"
+                    data-ar="انضم إلى الحركة"
+                    data-en="Join the Movement"
+                >
+                    انضم إلى الحركة
+                </h2>
+                <p
+                    class="reveal reveal-delay-1"
+                    data-ar="سواء كنت حرفياً يبحث عن منصة، أو مشترياً يبحث عن الأصالة — أنت في المكان الصح."
+                    data-en="Whether you're an artisan looking for a platform, or a buyer seeking authenticity — you're in the right place."
+                >
+                    سواء كنت حرفياً يبحث عن منصة، أو مشترياً يبحث عن الأصالة — أنت في المكان الصح.
+                </p>
+                <div class="about-cta-btns reveal reveal-delay-2">
+                    <a
+                        href="register.html"
+                        class="btn btn-primary"
+                        data-ar="إنشاء حساب"
+                        data-en="Create Account"
+                    >
+                        إنشاء حساب
+                    </a>
+                    <a
+                        href="contact.html"
+                        class="btn btn-outline"
+                        data-ar="تواصل معنا"
+                        data-en="Contact Us"
+                    >
+                        تواصل معنا
+                    </a>
+                </div>
+            </section>
+        </main>
+        <footer role="contentinfo"></footer>
+        <button id="audio-toggle" aria-label="الموسيقى المحيطة">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+                />
+            </svg>
+        </button>
+        <script src="js/shared.js"></script>
+        <script src="js/enhancements.js"></script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.numbers-inner .number-item', {
+                opacity: 0,
+                y: 30,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                scrollTrigger: { trigger: '.numbers-section', start: 'top 82%' }
+            });
+        </script>
+    </body>
+</html>

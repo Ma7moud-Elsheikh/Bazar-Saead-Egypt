@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>إنشاء حساب — بازار صعيد مصر</title>
+<meta name="description" content="إنشاء حساب في بازار صعيد مصر — انضم كمشترٍ أو حرفي."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"/></noscript>
+<link rel="stylesheet" href="css/shared.css"/>
+<link rel="canonical" href="https://bazarsa3eed.com/register.html"/>
+<meta property="og:title" content="إنشاء حساب — بازار صعيد مصر"/>
+<meta property="og:description" content="إنشاء حساب جديد في بازار صعيد مصر."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&h=630&fit=crop&auto=format"/>
+<meta property="og:url" content="https://bazarsa3eed.com/register.html"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="theme-color" content="#B87333"/>
+</head>
+<body>
+<a href="#main-content" class="skip-link" data-ar="انتقل للمحتوى" data-en="Skip to content">انتقل للمحتوى</a>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"></div><div id="cursor-follower" aria-hidden="true"></div>
+<div id="page-transition" aria-hidden="true"></div>
+
+<nav class="auth-nav" aria-label="شعار الموقع">
+  <a href="index.html" class="auth-nav-logo">بازار <span>صعيد</span> مصر</a>
+  <button id="lang-toggle" aria-label="Switch to English">EN</button>
+</nav>
+
+<main id="main-content">
+<div class="reg-wrap">
+
+  <!-- Form side -->
+  <div class="reg-form-side">
+    <div class="reg-form-inner">
+      <h1 data-ar="إنشاء حساب" data-en="Create Account">إنشاء حساب</h1>
+      <p class="reg-sub">
+        <span data-ar="لديك حساب؟ " data-en="Have an account? ">لديك حساب؟ </span>
+        <a href="login.html" data-ar="سجّل دخولك" data-en="Sign in">سجّل دخولك</a>
+      </p>
+
+      <!-- Account type -->
+      <div class="type-tabs" role="group" aria-label="نوع الحساب">
+        <button type="button" class="type-tab active" data-type="buyer" aria-pressed="true">
+          <span class="ti" aria-hidden="true">🛍️</span>
+          <span class="tl" data-ar="مشترٍ" data-en="Buyer">مشترٍ</span>
+          <span class="td" data-ar="أتصفح وأشتري" data-en="Browse & buy">أتصفح وأشتري</span>
+        </button>
+        <button type="button" class="type-tab" data-type="artisan" aria-pressed="false">
+          <span class="ti" aria-hidden="true">🏺</span>
+          <span class="tl" data-ar="حرفي" data-en="Artisan">حرفي</span>
+          <span class="td" data-ar="أعرض منتجاتي" data-en="Sell my crafts">أعرض منتجاتي</span>
+        </button>
+      </div>
+
+      <form novalidate onsubmit="return false" aria-label="نموذج إنشاء الحساب">
+        <div class="form-row">
+          <div class="fg">
+            <label class="fl" for="r-fname" data-ar="الاسم الأول" data-en="First Name">الاسم الأول</label>
+            <input class="fi" id="r-fname" type="text" required autocomplete="given-name"
+              data-ar-placeholder="محمد" data-en-placeholder="Mohamed" placeholder="محمد"/>
+          </div>
+          <div class="fg">
+            <label class="fl" for="r-lname" data-ar="الاسم الأخير" data-en="Last Name">الاسم الأخير</label>
+            <input class="fi" id="r-lname" type="text" required autocomplete="family-name"
+              data-ar-placeholder="علي" data-en-placeholder="Ali" placeholder="علي"/>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="r-email" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+          <input class="fi" id="r-email" type="email" required autocomplete="email"
+            data-ar-placeholder="example@email.com" data-en-placeholder="example@email.com" placeholder="example@email.com"/>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="r-phone" data-ar="رقم الهاتف" data-en="Phone">رقم الهاتف</label>
+          <input class="fi" id="r-phone" type="tel" autocomplete="tel"
+            data-ar-placeholder="01xxxxxxxxx" data-en-placeholder="01xxxxxxxxx" placeholder="01xxxxxxxxx" dir="ltr"/>
+        </div>
+
+        <!-- Artisan-only -->
+        <div id="artisan-fields">
+          <div class="fg">
+            <label class="fl" for="r-region" data-ar="المحافظة" data-en="Governorate">المحافظة</label>
+            <select class="fs" id="r-region">
+              <option value="" data-ar="اختر المحافظة" data-en="Select governorate">اختر المحافظة</option>
+              <option value="aswan"  data-ar="أسوان"  data-en="Aswan">أسوان</option>
+              <option value="luxor"  data-ar="الأقصر" data-en="Luxor">الأقصر</option>
+              <option value="qena"   data-ar="قنا"    data-en="Qena">قنا</option>
+              <option value="sohag"  data-ar="سوهاج"  data-en="Sohag">سوهاج</option>
+              <option value="asyut"  data-ar="أسيوط"  data-en="Asyut">أسيوط</option>
+              <option value="minya"  data-ar="المنيا"  data-en="Minya">المنيا</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl" for="r-craft" data-ar="الحرفة" data-en="Craft">الحرفة</label>
+            <select class="fs" id="r-craft">
+              <option value="">اختر / Select</option>
+              <option value="pottery">الفخار / Pottery</option>
+              <option value="weaving">النسيج / Weaving</option>
+              <option value="embroidery">التطريز / Embroidery</option>
+              <option value="copper">النحاسيات / Copperwork</option>
+              <option value="woodwork">الأعمال الخشبية / Woodwork</option>
+              <option value="glass">زجاج الفسيفساء / Mosaic Glass</option>
+              <option value="other">أخرى / Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="fl" for="r-pw" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+          <div class="pw-wrap">
+            <input class="fi pw-field" id="r-pw" type="password" required autocomplete="new-password"
+              data-ar-placeholder="٨ أحرف على الأقل" data-en-placeholder="At least 8 characters"
+              placeholder="٨ أحرف على الأقل" 
+              oninput="updatePwStrength(this.value)"/>
+            <button type="button" class="eye-btn" aria-label="إظهار كلمة المرور"
+              onclick="var i=document.getElementById('r-pw');i.type=i.type==='password'?'text':'password'">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="pw-bars" role="meter" aria-label="قوة كلمة المرور">
+            <div class="pw-bar" id="pb1"></div>
+            <div class="pw-bar" id="pb2"></div>
+            <div class="pw-bar" id="pb3"></div>
+            <div class="pw-bar" id="pb4"></div>
+          </div>
+        </div>
+
+        <div class="terms-row">
+          <input type="checkbox" id="r-terms" required/>
+          <label for="r-terms">
+            <span data-ar="أوافق على " data-en="I agree to the ">أوافق على </span>
+            <a href="#" data-ar="الشروط والأحكام" data-en="Terms">الشروط والأحكام</a>
+            <span data-ar=" و" data-en=" and"> و</span>
+            <a href="#" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
+          </label>
+        </div>
+
+        <button type="submit" class="auth-btn" data-ar="إنشاء الحساب" data-en="Create Account">إنشاء الحساب</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Visual side -->
+  <div class="reg-visual" aria-hidden="true">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&h=1200&fit=crop" alt=""/>
+    <div class="reg-visual-content">
+      <h2>
+        <span data-ar="انضم إلى" data-en="Join the">انضم إلى</span>
+        <br/><span data-ar="مجتمع الحرفة" data-en="Craft Community">مجتمع <span>الحرفة</span></span>
+      </h2>
+      <p data-ar="أكثر من ٥٠ حرفياً يعرضون أعمالهم. انضم إليهم اليوم." data-en="More than 50 artisans showcase their work. Join them today.">أكثر من ٥٠ حرفياً يعرضون أعمالهم. انضم إليهم اليوم.</p>
+      <div class="perks">
+        <div class="perk"><span class="perk-dot"></span><span data-ar="وصول مباشر لحرفيي الصعيد" data-en="Direct access to Upper Egypt artisans">وصول مباشر لحرفيي الصعيد</span></div>
+        <div class="perk"><span class="perk-dot"></span><span data-ar="منتجات يدوية أصيلة مضمونة" data-en="Guaranteed authentic handmade products">منتجات يدوية أصيلة مضمونة</span></div>
+        <div class="perk"><span class="perk-dot"></span><span data-ar="دعم الحرفيين وأسرهم مباشرةً" data-en="Directly support artisans and families">دعم الحرفيين وأسرهم مباشرةً</span></div>
+        <div class="perk"><span class="perk-dot"></span><span data-ar="أسبقية في الورش والفعاليات" data-en="Priority access to workshops">أسبقية في الورش والفعاليات</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script src="js/shared.js"></script>
+<script src="js/enhancements.js"></script>
+<script>
+// Account type switch
+document.querySelectorAll('.type-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.type-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-pressed','false')});
+    tab.classList.add('active'); tab.setAttribute('aria-pressed','true');
+    document.getElementById('artisan-fields').style.display = tab.dataset.type==='artisan'?'block':'none';
+  });
+});
+
+// Password strength
+function updatePwStrength(v){
+  let s=0;
+  if(v.length>=8) s++;
+  if(/[A-Z]/.test(v)) s++;
+  if(/[0-9]/.test(v)) s++;
+  if(/[^A-Za-z0-9]/.test(v)) s++;
+  const cls = s<=1?'w':s===2?'f':'s';
+  [1,2,3,4].forEach(i=>{
+    const b=document.getElementById('pb'+i);
+    b.className='pw-bar'+(i<=s?' '+cls:'');
+  });
+}
+
+// Auth page init (no full navbar/footer)
+document.getElementById('lang-toggle').addEventListener('click',()=>i18n.toggle());
+i18n.init(); initCursor(); initPageTransitions();
+</script>
+</body>
+</html>

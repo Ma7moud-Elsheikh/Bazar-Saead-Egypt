@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>بازار صعيد مصر — حرف يدوية أصيلة من قلب مصر</title>
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+        <meta
+            name="description"
+            content="بازار صعيد مصر — منصة تجمع أمهر حرفيي الصعيد بالعالم. فخار، نسيج، تطريز، نحاسيات وأعمال خشبية يدوية أصيلة."
+        />
+        <meta property="og:site_name" content="بازار صعيد مصر" />
+        <meta property="og:title" content="بازار صعيد مصر" />
+        <meta property="og:description" content="حرف يدوية أصيلة من قلب صعيد مصر" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:image"
+            content="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&h=630&fit=crop&auto=format"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+            media="print"
+            onload="this.media = 'all'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+            />
+        </noscript>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
+        <link rel="stylesheet" href="css/shared.css" />
+        <link rel="canonical" href="https://bazarsa3eed.com/" />
+        <meta property="og:url" content="https://bazarsa3eed.com/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="بازار صعيد مصر" />
+        <meta name="theme-color" content="#B87333" />
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link" data-ar="انتقل للمحتوى" data-en="Skip to content">
+            انتقل للمحتوى
+        </a>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div id="cursor" aria-hidden="true"></div>
+        <div id="cursor-follower" aria-hidden="true"></div>
+        <div id="page-transition" aria-hidden="true"></div>
+
+        <div id="loader" role="status" aria-label="جارٍ التحميل">
+            <div class="loader-logo">
+                بازار
+                <span>صعيد</span>
+                مصر
+            </div>
+            <p
+                class="loader-sub"
+                data-ar="حرف أصيلة من قلب مصر"
+                data-en="Authentic crafts from the heart of Egypt"
+            >
+                حرف أصيلة من قلب مصر
+            </p>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+
+        <header><nav id="navbar" aria-label="التنقل الرئيسي"></nav></header>
+        <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="قائمة التنقل"></div>
+
+        <main id="main-content">
+            <!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
+            <section id="hero" aria-labelledby="hero-h1">
+                <div id="hero-bg" aria-hidden="true"></div>
+                <div id="hero-overlay" aria-hidden="true"></div>
+                <div class="hero-content">
+                    <span
+                        class="hero-eyebrow"
+                        data-ar="حرف يدوية أصيلة من صعيد مصر"
+                        data-en="Authentic handmade crafts from Upper Egypt"
+                    >
+                        حرف يدوية أصيلة من صعيد مصر
+                    </span>
+                    <h1 class="hero-title" id="hero-h1">
+                        <span class="hero-title-line" data-ar="بازار" data-en="Bazar">بازار</span>
+                        <span class="hero-title-line copper" data-ar="صعيد" data-en="Sa3eed">
+                            صعيد
+                        </span>
+                        <span class="hero-title-line" data-ar="مصر" data-en="Masr">مصر</span>
+                    </h1>
+                    <p
+                        class="hero-subtitle"
+                        data-ar="هنا تلتقي يد الحرفي بروح التراث. منصة تُحيي فنون الصعيد وتصلها بقلوب العالم."
+                        data-en="Here the artisan's hand meets the spirit of heritage. A platform reviving Upper Egypt's arts and connecting them with the world."
+                    >
+                        هنا تلتقي يد الحرفي بروح التراث. منصة تُحيي فنون الصعيد وتصلها بقلوب العالم.
+                    </p>
+                    <div class="hero-actions">
+                        <a
+                            href="crafts.html"
+                            class="btn btn-primary"
+                            data-ar="اكتشف الحرف"
+                            data-en="Discover Crafts"
+                        >
+                            اكتشف الحرف
+                        </a>
+                        <a
+                            href="artisans.html"
+                            class="btn btn-outline btn-outline--sand"
+                            data-ar="تعرف على الحرفيين"
+                            data-en="Meet the Artisans"
+                        >
+                            تعرف على الحرفيين
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-stats" aria-label="إحصائيات">
+                    <div>
+                        <div class="stat-num">6+</div>
+                        <div class="stat-label" data-ar="حرف تقليدية" data-en="Traditional Crafts">
+                            حرف تقليدية
+                        </div>
+                    </div>
+                    <div>
+                        <div class="stat-num">50+</div>
+                        <div class="stat-label" data-ar="حرفي موهوب" data-en="Skilled Artisans">
+                            حرفي موهوب
+                        </div>
+                    </div>
+                    <div>
+                        <div class="stat-num">8</div>
+                        <div class="stat-label" data-ar="محافظات صعيد" data-en="Governorates">
+                            محافظات صعيد
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-scroll" aria-hidden="true">
+                    <span data-ar="اكتشف" data-en="Scroll">اكتشف</span>
+                    <div class="hero-scroll-line"></div>
+                </div>
+            </section>
+
+            <!-- ══ CRAFTS GRID ══════════════════════════════════════════════════════ -->
+            <section id="crafts-section" aria-labelledby="crafts-h2">
+                <div class="reveal">
+                    <span
+                        class="section-eyebrow"
+                        data-ar="الحرف التقليدية"
+                        data-en="Traditional Crafts"
+                    >
+                        الحرف التقليدية
+                    </span>
+                    <h2
+                        class="section-title"
+                        id="crafts-h2"
+                        data-ar="فنون صنعها الزمن"
+                        data-en="Arts Crafted by Time"
+                    >
+                        فنون صنعها الزمن
+                    </h2>
+                    <p
+                        class="section-subtitle"
+                        data-ar="كل حرفة تحمل روح المكان الذي نشأت فيه وذاكرة الأجيال التي صقلتها."
+                        data-en="Each craft carries the spirit of the place that nurtured it and the memory of generations that refined it."
+                    >
+                        كل حرفة تحمل روح المكان الذي نشأت فيه وذاكرة الأجيال التي صقلتها.
+                    </p>
+                </div>
+                <div class="crafts-grid" id="crafts-grid" aria-label="الحرف">
+                    <div class="skeleton skeleton--craft-index"></div>
+                    <div class="skeleton skeleton--craft-index"></div>
+                    <div class="skeleton skeleton--craft-index"></div>
+                    <div class="skeleton skeleton--craft-index"></div>
+                    <div class="skeleton skeleton--craft-index"></div>
+                    <div class="skeleton skeleton--craft-index"></div>
+                </div>
+                <div class="reveal section-cta">
+                    <a
+                        href="crafts.html"
+                        class="btn btn-outline"
+                        data-ar="عرض جميع الحرف"
+                        data-en="View All Crafts"
+                    >
+                        عرض جميع الحرف
+                    </a>
+                </div>
+            </section>
+
+            <!-- ══ ARTISANS ════════════════════════════════════════════════════════ -->
+            <section id="artisans-section" aria-labelledby="artisans-h2">
+                <div class="artisans-inner">
+                    <div class="reveal">
+                        <span
+                            class="section-eyebrow"
+                            data-ar="أصحاب الأيدي الذهبية"
+                            data-en="The Golden Hands"
+                        >
+                            أصحاب الأيدي الذهبية
+                        </span>
+                        <h2
+                            class="section-title section-title--light"
+                            id="artisans-h2"
+                            data-ar="حرفيونا"
+                            data-en="Our Artisans"
+                        >
+                            حرفيونا
+                        </h2>
+                        <p
+                            class="section-subtitle section-subtitle--sand"
+                            data-ar="وراء كل قطعة إنسان. وراء كل إنسان قصة تستحق أن تُروى."
+                            data-en="Behind every piece is a person. Behind every person is a story worth telling."
+                        >
+                            وراء كل قطعة إنسان. وراء كل إنسان قصة تستحق أن تُروى.
+                        </p>
+                    </div>
+                    <div class="artisans-grid" id="artisans-grid" aria-label="الحرفيون"></div>
+                    <div class="reveal section-cta">
+                        <a
+                            href="artisans.html"
+                            class="btn btn-outline btn-outline--sand"
+                            data-ar="تعرف على جميع الحرفيين"
+                            data-en="Meet All Artisans"
+                        >
+                            تعرف على جميع الحرفيين
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ CRAFT JOURNEY (pinned scroll) ══════════════════════════════════ -->
+            <section id="journey-section" aria-label="رحلة الحرفة">
+                <div class="journey-sticky">
+                    <div class="journey-bg-wrap" aria-hidden="true">
+                        <img
+                            id="journey-bg-img"
+                            src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1600&h=900&fit=crop"
+                            alt=""
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="journey-dark" aria-hidden="true"></div>
+
+                    <div id="journey-step-0" class="journey-step active">
+                        <div class="journey-step-num">٠١</div>
+                        <h3
+                            class="journey-step-title"
+                            data-ar="تبدأ من الأرض"
+                            data-en="It Begins from the Earth"
+                        >
+                            تبدأ من الأرض
+                        </h3>
+                        <p
+                            class="journey-step-text"
+                            data-ar="كل حرفة في الصعيد تبدأ من الأرض ذاتها — طين النيل، خشب الأكاسيا، نحاس الجبال. المادة الخام تحمل روح المكان قبل أن تلمسها يد الحرفي."
+                            data-en="Every craft in Upper Egypt begins from the earth itself — Nile clay, acacia wood, mountain copper. The raw material carries the spirit of place before the artisan's hand ever touches it."
+                        >
+                            كل حرفة في الصعيد تبدأ من الأرض ذاتها — طين النيل، خشب الأكاسيا، نحاس
+                            الجبال.
+                        </p>
+                    </div>
+                    <div id="journey-step-1" class="journey-step">
+                        <div class="journey-step-num">٠٢</div>
+                        <h3
+                            class="journey-step-title"
+                            data-ar="تمر بالأيدي"
+                            data-en="It Passes Through Hands"
+                        >
+                            تمر بالأيدي
+                        </h3>
+                        <p
+                            class="journey-step-text"
+                            data-ar="يد الحرفي ليست مجرد أداة — هي ذاكرة وفن وعلم. سنوات من الممارسة تجعل الأصابع تعرف ما لا يعرفه العقل."
+                            data-en="The artisan's hand is not just a tool — it is memory, art, and science. Years of practice make fingers know what the mind cannot."
+                        >
+                            يد الحرفي ليست مجرد أداة — هي ذاكرة وفن وعلم.
+                        </p>
+                    </div>
+                    <div id="journey-step-2" class="journey-step">
+                        <div class="journey-step-num">٠٣</div>
+                        <h3
+                            class="journey-step-title"
+                            data-ar="تُولد قطعة فريدة"
+                            data-en="A Unique Piece is Born"
+                        >
+                            تُولد قطعة فريدة
+                        </h3>
+                        <p
+                            class="journey-step-text"
+                            data-ar="لا توجد قطعتان متطابقتان. كل تفاوت صغير هو توقيع الحرفي، دليل على أن ما بين يديك صُنع بقصد ووعي وحب."
+                            data-en="No two pieces are identical. Every small variation is the artisan's signature — proof that what you hold was made with intention and love."
+                        >
+                            لا توجد قطعتان متطابقتان. كل تفاوت صغير هو توقيع الحرفي.
+                        </p>
+                    </div>
+                    <div id="journey-step-3" class="journey-step">
+                        <div class="journey-step-num">٠٤</div>
+                        <h3 class="journey-step-title" data-ar="تصل إليك" data-en="It Reaches You">
+                            تصل إليك
+                        </h3>
+                        <p
+                            class="journey-step-text"
+                            data-ar="حين تمسك بقطعة من بازار صعيد مصر، أنت تمسك بقطعة من التاريخ وعطاء الإنسان ووعد باستمرار الجمال."
+                            data-en="When you hold a piece from Bazar Sa3eed Masr, you hold a piece of history, human generosity, and a promise that beauty continues."
+                        >
+                            حين تمسك بقطعة من بازار صعيد مصر، أنت تمسك بقطعة من التاريخ.
+                        </p>
+                    </div>
+
+                    <nav class="journey-progress" aria-label="مراحل الرحلة" role="tablist">
+                        <button
+                            class="journey-dot active"
+                            role="tab"
+                            aria-selected="true"
+                            aria-label="المرحلة ١ — تبدأ من الأرض"
+                            data-label-ar="تبدأ من الأرض"
+                            data-label-en="Begins from the Earth"
+                            data-step="0"
+                        ></button>
+                        <button
+                            class="journey-dot"
+                            role="tab"
+                            aria-selected="false"
+                            aria-label="المرحلة ٢ — تمر بالأيدي"
+                            data-label-ar="تمر بالأيدي"
+                            data-label-en="Passes Through Hands"
+                            data-step="1"
+                        ></button>
+                        <button
+                            class="journey-dot"
+                            role="tab"
+                            aria-selected="false"
+                            aria-label="المرحلة ٣ — تُولد قطعة فريدة"
+                            data-label-ar="تُولد قطعة فريدة"
+                            data-label-en="A Unique Piece is Born"
+                            data-step="2"
+                        ></button>
+                        <button
+                            class="journey-dot"
+                            role="tab"
+                            aria-selected="false"
+                            aria-label="المرحلة ٤ — تصل إليك"
+                            data-label-ar="تصل إليك"
+                            data-label-en="It Reaches You"
+                            data-step="3"
+                        ></button>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- ══ EGYPT MAP ═══════════════════════════════════════════════════════ -->
+            <section id="map-section" aria-labelledby="map-h2">
+                <div class="map-inner">
+                    <div class="reveal">
+                        <span class="section-eyebrow" data-ar="خريطة الحرف" data-en="Crafts Map">
+                            خريطة الحرف
+                        </span>
+                        <h2
+                            class="section-title"
+                            id="map-h2"
+                            data-ar="اكتشف حرف كل محافظة"
+                            data-en="Discover Each Governorate's Crafts"
+                        >
+                            اكتشف حرف كل محافظة
+                        </h2>
+                        <p
+                            class="section-subtitle"
+                            data-ar="انقر على أي محافظة لتتعرف على حرفها وحرفييها."
+                            data-en="Click on any governorate to discover its crafts and artisans."
+                        >
+                            انقر على أي محافظة لتتعرف على حرفها وحرفييها.
+                        </p>
+                    </div>
+                    <div class="map-layout reveal reveal-delay-1">
+                        <div class="map-svg-wrap">
+                            <svg
+                                id="egypt-svg"
+                                viewBox="0 0 300 520"
+                                xmlns="http://www.w3.org/2000/svg"
+                                role="img"
+                                aria-label="خريطة مصر التفاعلية"
+                            >
+                                <title>خريطة صعيد مصر التفاعلية — انقر لاستكشاف</title>
+                                <defs>
+                                    <filter id="region-shadow">
+                                        <feDropShadow
+                                            dx="0"
+                                            dy="2"
+                                            stdDeviation="3"
+                                            flood-opacity="0.2"
+                                        />
+                                    </filter>
+                                </defs>
+                                <!-- Background outline -->
+                                <path
+                                    d="M75,25 L225,25 L248,90 L255,155 L250,220 L238,285 L215,345 L185,405 L155,475 L140,475 L110,405 L82,345 L55,285 L45,220 L50,155 L57,90 Z"
+                                    fill="rgba(74,82,64,.1)"
+                                    stroke="rgba(74,82,64,.25)"
+                                    stroke-width="1.5"
+                                />
+                                <!-- Cairo / Lower Egypt -->
+                                <path
+                                    class="region"
+                                    id="r-cairo"
+                                    data-region="cairo"
+                                    data-name-ar="القاهرة والدلتا"
+                                    data-name-en="Cairo &amp; Delta"
+                                    d="M75,25 L225,25 L248,90 L210,108 L155,118 L90,108 L57,90 Z"
+                                    filter="url(#region-shadow)"
+                                    aria-label="القاهرة"
+                                />
+                                <!-- Minya -->
+                                <path
+                                    class="region"
+                                    id="r-minya"
+                                    data-region="minya"
+                                    data-name-ar="المنيا"
+                                    data-name-en="Minya"
+                                    d="M68,120 L155,130 L242,120 L248,172 L155,182 L62,172 Z"
+                                    filter="url(#region-shadow)"
+                                    aria-label="المنيا"
+                                />
+                                <!-- Asyut -->
+                                <path
+                                    class="region"
+                                    id="r-asyut"
+                                    data-region="asyut"
+                                    data-name-ar="أسيوط"
+                                    data-name-en="Asyut"
+                                    d="M62,174 L155,184 L248,174 L244,228 L155,238 L66,228 Z"
+                                    filter="url(#region-shadow)"
+                                    aria-label="أسيوط"
+                                />
+                                <!-- Sohag -->
+                                <path
+                                    class="region"
+                                    id="r-sohag"
+                                    data-region="sohag"
+                                    data-name-ar="سوهاج"
+                                    data-name-en="Sohag"
+                                    d="M66,230 L155,240 L244,230 L238,286 L155,296 L72,286 Z"
+                                    filter="url(#region-shadow)"
+                                    aria-label="سوهاج"
+                                />
+                                <!-- Qena -->
+                                <path
+                                    class="region"
+                                    id="r-qena"
+                                    data-region="qena"
+                                    data-name-ar="قنا"
+                                    data-name-en="Qena"
+                                    d="M72,288 L155,298 L238,288 L232,344 L155,354 L78,344 Z"
+                                    filter="url(#region-shadow)"
+                                    aria-label="قنا"
+                                />
+                                <!-- Luxor -->
+                                <path
+                                    class="region"
+                                    id="r-luxor"
+                                    data-region="luxor"
+                                    data-name-ar="الأقصر"
+                                    data-name-en="Luxor"
+                                    d="M78,346 L155,356 L232,346 L224,400 L155,410 L86,400 Z"
+                                    filter="url(#region-shadow)"
+                                    aria-label="الأقصر"
+                                />
+                                <!-- Aswan -->
+                                <path
+                                    class="region"
+                                    id="r-aswan"
+                                    data-region="aswan"
+                                    data-name-ar="أسوان والنوبة"
+                                    data-name-en="Aswan &amp; Nubia"
+                                    d="M86,402 L155,412 L224,402 L215,448 L155,475 L140,475 L96,448 Z"
+                                    filter="url(#region-shadow)"
+                                    aria-label="أسوان"
+                                />
+                                <!-- Labels -->
+                                <text
+                                    x="152"
+                                    y="72"
+                                    text-anchor="middle"
+                                    fill="rgba(44,44,44,.6)"
+                                    font-size="8.5"
+                                    font-family="Cairo,sans-serif"
+                                    pointer-events="none"
+                                >
+                                    القاهرة
+                                </text>
+                                <text
+                                    x="152"
+                                    y="154"
+                                    text-anchor="middle"
+                                    fill="rgba(44,44,44,.6)"
+                                    font-size="8"
+                                    font-family="Cairo,sans-serif"
+                                    pointer-events="none"
+                                >
+                                    المنيا
+                                </text>
+                                <text
+                                    x="152"
+                                    y="208"
+                                    text-anchor="middle"
+                                    fill="rgba(44,44,44,.6)"
+                                    font-size="8"
+                                    font-family="Cairo,sans-serif"
+                                    pointer-events="none"
+                                >
+                                    أسيوط
+                                </text>
+                                <text
+                                    x="152"
+                                    y="261"
+                                    text-anchor="middle"
+                                    fill="rgba(44,44,44,.6)"
+                                    font-size="8"
+                                    font-family="Cairo,sans-serif"
+                                    pointer-events="none"
+                                >
+                                    سوهاج
+                                </text>
+                                <text
+                                    x="152"
+                                    y="320"
+                                    text-anchor="middle"
+                                    fill="rgba(44,44,44,.6)"
+                                    font-size="8"
+                                    font-family="Cairo,sans-serif"
+                                    pointer-events="none"
+                                >
+                                    قنا
+                                </text>
+                                <text
+                                    x="152"
+                                    y="380"
+                                    text-anchor="middle"
+                                    fill="rgba(44,44,44,.6)"
+                                    font-size="8"
+                                    font-family="Cairo,sans-serif"
+                                    pointer-events="none"
+                                >
+                                    الأقصر
+                                </text>
+                                <text
+                                    x="152"
+                                    y="440"
+                                    text-anchor="middle"
+                                    fill="rgba(44,44,44,.6)"
+                                    font-size="8"
+                                    font-family="Cairo,sans-serif"
+                                    pointer-events="none"
+                                >
+                                    أسوان
+                                </text>
+                            </svg>
+                        </div>
+                        <div
+                            id="map-panel"
+                            role="region"
+                            aria-live="polite"
+                            aria-label="معلومات المحافظة"
+                        >
+                            <div class="map-empty">
+                                <svg
+                                    width="40"
+                                    height="40"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="var(--copper)"
+                                    stroke-width="1.5"
+                                >
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <p
+                                    data-ar="انقر على أي منطقة في الخريطة لترى حرفها وحرفييها"
+                                    data-en="Click on any region on the map to see its crafts and artisans"
+                                >
+                                    انقر على أي منطقة في الخريطة لترى حرفها وحرفييها
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ CINEMATIC QUOTE ═════════════════════════════════════════════════ -->
+            <section id="quote-section" aria-label="اقتباس">
+                <div class="quote-bg-word" aria-hidden="true">حرف</div>
+                <div class="quote-line reveal"></div>
+                <blockquote
+                    class="quote-text reveal reveal-delay-1"
+                    data-ar="«الحرفة ليست مهنة، هي هوية. ليست إنتاجاً، هي حوار بين الإنسان والأرض والزمن»"
+                    data-en="«A craft is not a profession, it is an identity. Not production, but a dialogue between man, earth, and time»"
+                >
+                    «الحرفة ليست مهنة، هي هوية. ليست إنتاجاً، هي حوار بين الإنسان والأرض والزمن»
+                </blockquote>
+                <p
+                    class="quote-attribution reveal reveal-delay-2"
+                    data-ar="روح صعيد مصر"
+                    data-en="Spirit of Upper Egypt"
+                >
+                    روح صعيد مصر
+                </p>
+            </section>
+        </main>
+        <footer role="contentinfo"></footer>
+
+        <button id="audio-toggle" aria-label="تشغيل الموسيقى المحيطة">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+                />
+            </svg>
+        </button>
+
+        <script src="js/shared.js"></script>
+        <script src="js/enhancements.js"></script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            // ── Load crafts grid ────────────────────────────────────────────────
+            async function loadCrafts() {
+                const grid = document.getElementById('crafts-grid');
+                try {
+                    const crafts = await fetch('data/crafts.json').then((r) => r.json());
+                    const lang = i18n.currentLang;
+                    grid.innerHTML = crafts
+                        .map(
+                            (c, i) => `
+      <article>
+        <a href="craft-single.html?slug=${c.slug}" class="craft-card" aria-label="${c.name[lang]}">
+          <img src="${c.coverImage}" alt="${c.name[lang]}" loading="${i < 3 ? 'eager' : 'lazy'}" ${i < 3 ? 'fetchpriority="high"' : ''}/>
+          <div class="craft-overlay">
+            <p class="craft-region" data-ar="${c.region.ar}" data-en="${c.region.en}">${c.region[lang]}</p>
+            <h3 class="craft-name" data-ar="${c.name.ar}" data-en="${c.name.en}">${c.name[lang]}</h3>
+            <div class="craft-arrow" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+      </article>`
+                        )
+                        .join('');
+                    initReveal();
+                    window._onContentLoaded?.();
+                    // Stagger animation
+                    gsap.from('#crafts-grid article', {
+                        opacity: 0,
+                        y: 60,
+                        duration: 0.7,
+                        stagger: 0.1,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform',
+                        scrollTrigger: { trigger: '#crafts-grid', start: 'top 85%', once: true }
+                    });
+                    // Re-apply on lang change
+                    window._onLangChange = (lang) => {
+                        crafts.forEach((c) => {
+                            const card = grid.querySelector(`a[href*="${c.slug}"]`);
+                            if (!card) return;
+                            card.querySelector('.craft-region').textContent = c.region[lang];
+                            card.querySelector('.craft-name').textContent = c.name[lang];
+                            card.setAttribute('aria-label', c.name[lang]);
+                        });
+                    };
+                } catch (e) {
+                    grid.innerHTML = '<p class="state-error">تعذّر التحميل</p>';
+                }
+            }
+
+            // ── Load artisans grid ──────────────────────────────────────────────
+            async function loadArtisans() {
+                const grid = document.getElementById('artisans-grid');
+                try {
+                    const artisans = await fetch('data/artisans.json').then((r) => r.json());
+                    const lang = i18n.currentLang;
+                    grid.innerHTML = artisans
+                        .slice(0, 4)
+                        .map(
+                            (a, i) => `
+      <article>
+        <a href="artisan-single.html?id=${a.id}" class="artisan-card" aria-label="${a.name[lang]}">
+          <img class="artisan-portrait" src="${a.portrait}" alt="${a.name[lang]}" loading="lazy"/>
+          <div class="artisan-name" data-ar="${a.name.ar}" data-en="${a.name.en}">${a.name[lang]}</div>
+          <div class="artisan-region-tag" data-ar="${a.region.ar}" data-en="${a.region.en}">${a.region[lang]}</div>
+        </a>
+      </article>`
+                        )
+                        .join('');
+                    initReveal();
+                    gsap.from('#artisans-grid article', {
+                        opacity: 0,
+                        y: 50,
+                        scale: 0.96,
+                        duration: 0.65,
+                        stagger: 0.1,
+                        ease: 'power2.out',
+                        clearProps:'opacity,transform',
+scrollTrigger:{trigger:'#artisans-grid',start:'top 85%',once:true}
+                    });
+                } catch (e) {}
+            }
+
+            // ── Interactive Map ─────────────────────────────────────────────────
+            async function initMap() {
+                let crafts = [],
+                    artisans = [];
+                try {
+                    [crafts, artisans] = await Promise.all([
+                        fetch('data/crafts.json').then((r) => r.json()),
+                        fetch('data/artisans.json').then((r) => r.json())
+                    ]);
+                } catch (e) {
+                    return;
+                }
+
+                const panel = document.getElementById('map-panel');
+                let activeKey = null; // track active region for lang re-render
+
+                function renderMapPanel(key, animate = true) {
+                    if (!key) return;
+                    const lang = i18n.currentLang;
+                    const reg = document.querySelector(`#egypt-svg .region[data-region="${key}"]`);
+                    const name = reg
+                        ? lang === 'ar'
+                            ? reg.dataset.nameAr
+                            : reg.dataset.nameEn
+                        : key;
+
+                    const regionCrafts = crafts.filter((c) => c.regionKey === key);
+                    const regionArtisans = artisans.filter((a) => a.regionKey === key);
+
+                    if (!regionCrafts.length && !regionArtisans.length) {
+                        panel.innerHTML = `
+        <div class="map-panel-title">${name}</div>
+        <div class="map-panel-meta">${lang === 'ar' ? 'لا توجد بيانات بعد' : 'No data yet'}</div>
+        <p class="map-region-text">${lang === 'ar' ? 'سيتم إضافة محتوى هذه المنطقة قريباً.' : 'Content for this region will be added soon.'}</p>`;
+                        return;
+                    }
+
+                    const craftsHTML =
+                        regionCrafts
+                            .map(
+                                (c) => `
+      <a href="craft-single.html?slug=${c.slug}" class="craft-tag map-craft-link">
+        ${c.name[lang]}
+      </a>`
+                            )
+                            .join('') ||
+                        `<span class="craft-tag map-craft-soon">${lang === 'ar' ? 'قريباً' : 'Coming soon'}</span>`;
+
+                    const artisanHTML = regionArtisans
+                        .slice(0, 3)
+                        .map(
+                            (a) => `
+      <a href="artisan-single.html?id=${a.id}" class="map-artisan-row">
+        <img src="${a.portrait}" alt="${a.name[lang]}" class="map-artisan-avatar"/>
+        <div>
+          <p class="map-artisan-name">${a.name[lang]}</p>
+          <span class="map-artisan-region">${a.region[lang]}</span>
+        </div>
+      </a>`
+                        )
+                        .join('');
+
+                    panel.innerHTML = `
+      <div class="map-panel-title">${name}</div>
+      <div class="map-panel-meta">${regionArtisans.length} ${lang === 'ar' ? 'حرفي' : 'artisan(s)'} · ${regionCrafts.length} ${lang === 'ar' ? 'حرفة' : 'craft(s)'}</div>
+      <div class="map-panel-crafts">${craftsHTML}</div>
+      ${artisanHTML ? `<div class="map-artisan-list">${artisanHTML}</div>` : ''}
+      <a href="artisans.html?region=${key}" class="btn btn-primary map-panel-btn">
+        ${lang === 'ar' ? 'استكشف الحرفيين' : 'Explore Artisans'}
+      </a>`;
+
+                    if (animate)
+                        gsap.from(panel, {
+                            opacity: 0,
+                            x: lang === 'ar' ? -30 : 30,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                }
+
+                document.querySelectorAll('#egypt-svg .region').forEach((reg) => {
+                    reg.addEventListener('click', () => {
+                        document
+                            .querySelectorAll('#egypt-svg .region')
+                            .forEach((r) => r.classList.remove('active'));
+                        reg.classList.add('active');
+                        activeKey = reg.dataset.region;
+                        renderMapPanel(activeKey, true);
+                    });
+                    reg.addEventListener('mouseenter', function () {
+                        const lang = i18n.currentLang;
+                        this.setAttribute(
+                            'title',
+                            lang === 'ar' ? this.dataset.nameAr : this.dataset.nameEn
+                        );
+                    });
+                });
+
+                // Re-render panel on language change (no animation)
+                const prevLangChange = window._onLangChange;
+                window._onLangChange = (lang) => {
+                    prevLangChange?.(lang);
+                    if (activeKey) renderMapPanel(activeKey, false);
+                    // Update region hover titles
+                    document.querySelectorAll('#egypt-svg .region').forEach((reg) => {
+                        reg.setAttribute(
+                            'title',
+                            lang === 'ar' ? reg.dataset.nameAr : reg.dataset.nameEn
+                        );
+                    });
+                };
+            }
+
+            // ── Boot ────────────────────────────────────────────────────────────
+            loadCrafts();
+            loadArtisans();
+            initMap();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>الحرفة — بازار صعيد مصر</title>
+<meta name="description" content="تفاصيل الحرفة من بازار صعيد مصر — حرف يدوية أصيلة من صعيد مصر."/>
+<meta property="og:site_name" content="بازار صعيد مصر"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="الحرفة — بازار صعيد مصر"/>
+<meta property="og:description" content="تفاصيل الحرفة من بازار صعيد مصر"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&h=630&fit=crop&auto=format"/>
+<meta property="og:url" content="https://bazarsa3eed.com/craft-single.html"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="theme-color" content="#B87333"/>
+<link rel="canonical" href="https://bazarsa3eed.com/craft-single.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"/></noscript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
+<link rel="stylesheet" href="css/shared.css"/>
+</head>
+<body>
+<a href="#main-content" class="skip-link" data-ar="انتقل للمحتوى" data-en="Skip to content">انتقل للمحتوى</a>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-follower" aria-hidden="true"></div>
+<div id="page-transition" aria-hidden="true"></div>
+<header><nav id="navbar" aria-label="التنقل الرئيسي"></nav></header>
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="قائمة التنقل"></div>
+
+<main id="main-content">
+  <!-- Skeleton while loading -->
+  <div id="craft-skeleton">
+    <div class="skeleton skeleton--craft-single-hero"></div>
+    <div class="skeleton--craft-single-layout">
+      <div class="skeleton--craft-single-aside">
+        <div class="skeleton skeleton--line-xs"></div>
+        <div class="skeleton skeleton--line-md"></div>
+        <div class="skeleton skeleton--line-sm"></div>
+        <div class="skeleton skeleton--line-sm-short"></div>
+      </div>
+      <div class="skeleton--craft-single-main">
+        <div class="skeleton skeleton--line-lg"></div>
+        <div class="skeleton skeleton--line-lg-mid"></div>
+        <div class="skeleton skeleton--line-lg-short"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Actual content injected by JS -->
+  <div id="craft-content" hidden></div>
+</main>
+
+<footer role="contentinfo"></footer>
+<button id="audio-toggle" aria-label="تشغيل الموسيقى المحيطة">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+  </svg>
+</button>
+
+<script src="js/shared.js"></script>
+<script src="js/enhancements.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+async function loadCraft() {
+  const slug = new URLSearchParams(location.search).get('slug');
+  if (!slug) { location.href = 'crafts.html'; return; }
+
+  try {
+    const [crafts, artisans] = await Promise.all([
+      fetch('data/crafts.json').then(r => r.json()),
+      fetch('data/artisans.json').then(r => r.json()),
+    ]);
+
+    const craft = crafts.find(c => c.slug === slug);
+    if (!craft) { location.href = 'crafts.html'; return; }
+
+    const lang = i18n.currentLang;
+
+    // ── SEO meta update ──────────────────────────────────────────
+    setPageMeta({
+      title:         `${craft.name[lang]} — بازار صعيد مصر`,
+      description:   craft.story[lang].slice(0, 155) + '…',
+      ogTitle:       `${craft.name[lang]} — بازار صعيد مصر`,
+      ogDescription: craft.story[lang].slice(0, 155) + '…',
+      ogImage:       craft.ogImage || craft.coverImage,
+      ogType:        'article',
+    });
+    // canonical for this specific slug
+    let can = document.querySelector('link[rel="canonical"]');
+    if (!can) { can = document.createElement('link'); can.rel = 'canonical'; document.head.appendChild(can); }
+    can.href = `https://bazarsa3eed.com/craft-single.html?slug=${slug}`;
+
+    const related = artisans.filter(a => a.regionKey === craft.regionKey);
+
+    // ── Build HTML ───────────────────────────────────────────────
+    const relatedHTML = related.length ? `
+      <section class="related-section" aria-labelledby="related-h2">
+        <div class="related-inner">
+          <div class="reveal">
+            <span class="section-eyebrow" data-ar="حرفيو المنطقة" data-en="Regional Artisans">حرفيو المنطقة</span>
+            <h2 class="section-title section-title--light" id="related-h2"
+                data-ar="الحرفيون المرتبطون" data-en="Related Artisans">الحرفيون المرتبطون</h2>
+          </div>
+          <div class="related-grid">
+            ${related.map(a => `
+            <a href="artisan-single.html?id=${a.id}" class="artisan-mini reveal"
+               aria-label="${a.name[lang]}">
+              <img src="${a.portrait}" alt="${a.name[lang]}" loading="lazy" width="56" height="56"/>
+              <div>
+                <p class="artisan-mini-name" data-ar="${a.name.ar}" data-en="${a.name.en}">${a.name[lang]}</p>
+                <span class="artisan-mini-region" data-ar="${a.region.ar}" data-en="${a.region.en}">${a.region[lang]}</span>
+              </div>
+            </a>`).join('')}
+          </div>
+        </div>
+      </section>` : '';
+
+    document.getElementById('craft-content').innerHTML = `
+      <section class="craft-hero ${craft.animationPersonality}" aria-labelledby="craft-h1">
+        <img class="craft-hero-img" src="${craft.coverImage}"
+             alt="${craft.name[lang]}" fetchpriority="high"
+             width="1600" height="900"/>
+        <div class="craft-hero-grad" aria-hidden="true"></div>
+        <div class="craft-hero-content">
+          <span class="craft-hero-region"
+                data-ar="${craft.region.ar}" data-en="${craft.region.en}">${craft.region[lang]}</span>
+          <h1 id="craft-h1" data-ar="${craft.name.ar}" data-en="${craft.name.en}">${craft.name[lang]}</h1>
+        </div>
+      </section>
+
+      <article class="craft-story">
+        <aside class="craft-story-meta reveal">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li><a href="index.html" class="breadcrumb__link" data-ar="الرئيسية" data-en="Home">${lang === 'ar' ? 'الرئيسية' : 'Home'}</a></li>
+              <li class="breadcrumb__sep" aria-hidden="true">/</li>
+              <li><a href="crafts.html" class="breadcrumb__link" data-ar="الحرف" data-en="Crafts">${lang === 'ar' ? 'الحرف' : 'Crafts'}</a></li>
+              <li class="breadcrumb__sep" aria-hidden="true">/</li>
+              <li class="breadcrumb__current" aria-current="page">${craft.name[lang]}</li>
+            </ol>
+          </nav>
+          <h2 data-ar="${craft.name.ar}" data-en="${craft.name.en}">${craft.name[lang]}</h2>
+          <p class="craft-meta-region"
+             data-ar="المنطقة: ${craft.region.ar}" data-en="Region: ${craft.region.en}">
+            ${lang === 'ar' ? `المنطقة: ${craft.region.ar}` : `Region: ${craft.region.en}`}
+          </p>
+          <a href="crafts.html" class="btn btn-outline craft-back-link"
+             data-ar="← كل الحرف" data-en="← All Crafts">
+            ${lang === 'ar' ? '← كل الحرف' : '← All Crafts'}
+          </a>
+        </aside>
+        <div class="craft-body-text reveal reveal-delay-2"
+             data-ar="${craft.story.ar.replace(/"/g,'&quot;')}"
+             data-en="${craft.story.en.replace(/"/g,'&quot;')}">${craft.story[lang]}</div>
+      </article>
+
+      ${relatedHTML}`;
+
+    // Show content, hide skeleton
+    document.getElementById('craft-skeleton').remove();
+    document.getElementById('craft-content').removeAttribute('hidden');
+
+    initReveal();
+    window._onContentLoaded?.();
+
+    // Parallax hero
+    gsap.to('.craft-hero-img', {
+      yPercent: 22, ease: 'none',
+      scrollTrigger: { trigger: '.craft-hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+    // Hero entrance
+    gsap.from('.craft-hero-content h1', { opacity: 0, y: 50, duration: .9, ease: 'power3.out', delay: .3 });
+    gsap.from('.craft-hero-region',      { opacity: 0, y: 20, duration: .7, ease: 'power2.out', delay: .15 });
+
+    // Re-render on lang change
+    window._onLangChange = () => loadCraft();
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById('craft-skeleton').innerHTML = `
+      <div class="state-error--full">
+        <p class="state-error__text"
+           data-ar="تعذّر تحميل هذه الحرفة." data-en="Could not load this craft.">
+          تعذّر تحميل هذه الحرفة.
+        </p>
+        <a href="crafts.html" class="btn btn-primary"
+           data-ar="العودة للحرف" data-en="Back to Crafts">العودة للحرف</a>
+      </div>`;
+  }
+}
+
+loadCraft();
+</script>
+</body>
+</html>
