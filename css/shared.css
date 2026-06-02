@@ -241,7 +241,7 @@ body.cursor-hover #cursor-follower {
 #navbar.scrolled .nav-logo {
     color: var(--charcoal);
 }
-.nav-logo span {
+.nav-logo .logo-highlight {
     color: var(--copper);
 }
 .nav-links {
@@ -312,10 +312,13 @@ body.cursor-hover #cursor-follower {
     display: block;
     width: 24px;
     height: 1.5px;
-    background: var(--charcoal);
+    background: var(--copper);
     transition:
         transform 0.35s,
         opacity 0.35s;
+}
+#navbar.scrolled #hamburger span {
+    background: var(--charcoal);
 }
 #hamburger.open span:nth-child(1) {
     transform: translateY(6.5px) rotate(45deg);
@@ -376,7 +379,7 @@ footer {
     font-weight: 900;
     margin-bottom: 14px;
 }
-.footer-brand .logo span {
+.footer-brand .logo .logo-highlight {
     color: var(--copper);
 }
 .footer-brand p {
@@ -452,36 +455,6 @@ footer {
 .footer-bottom p {
     font-size: 0.78rem;
     /* opacity: 0.38; */
-}
-
-/* ── AUDIO TOGGLE ───────────────────────────────────────────────── */
-#audio-toggle {
-    position: fixed;
-    bottom: 28px;
-    inset-inline-end: 28px;
-    width: 46px;
-    height: 46px;
-    background: var(--charcoal);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 990;
-    cursor: none;
-    color: var(--sand);
-    transition:
-        background 0.25s,
-        border-color 0.25s;
-}
-#audio-toggle:hover {
-    background: var(--copper);
-    border-color: var(--copper);
-}
-#audio-toggle.playing {
-    background: rgba(184, 115, 51, 0.15);
-    border-color: var(--copper);
-    color: var(--copper);
 }
 
 /* ── SKELETON LOADER ────────────────────────────────────────────── */
@@ -774,8 +747,8 @@ footer {
     color: var(--offwhite);
     text-decoration: none;
 }
-.auth-nav-logo span {
-    color: var(--copper);
+.auth-nav-logo span.highlight {
+    color: var(--charcoal);
 }
 /* Auth layout */
 .auth-wrap,
@@ -817,14 +790,14 @@ footer {
     font-size: clamp(1.1rem, 2.5vw, 1.7rem);
     font-style: italic;
     font-weight: 300;
-    color: var(--sand);
+    color: var(--offwhite);
     line-height: 1.65;
     margin-bottom: 14px;
 }
 .auth-quote-credit {
     font-size: 0.7rem;
     letter-spacing: 0.18em;
-    color: var(--copper);
+    color: var(--charcoal);
     text-transform: uppercase;
     font-family: var(--font-accent);
 }
@@ -2865,10 +2838,6 @@ footer {
     }
     .footer-brand {
         grid-column: 1 / -1;
-    }
-    #audio-toggle {
-        bottom: 16px;
-        inset-inline-end: 16px;
     }
     .page-hero-content {
         padding: 110px 24px 64px;

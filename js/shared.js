@@ -177,7 +177,7 @@ function initNavbar() {
         });
 
         const yearEl = document.getElementById('footer-year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
     }
 
     // Active link
@@ -302,92 +302,6 @@ function initLenis() {
     }
     window._lenis = lenis;
     return lenis;
-}
-
-/* ── Ambient Audio — Web Audio API (no external URL needed) ─────── */
-function initAudio() {
-    const btn = document.getElementById('audio-toggle');
-    if (!btn) return;
-
-    let ctx = null,
-        nodes = [],
-        playing = false;
-
-    function buildAmbient() {
-        ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const master = ctx.createGain();
-        master.gain.value = 0.12;
-        master.connect(ctx.destination);
-
-        // Layer 1: low drone (oud-like)
-        [55, 110, 165].forEach((freq, i) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = 'sine';
-            osc.frequency.value = freq;
-            gain.gain.value = 0.25 - i * 0.07;
-            osc.connect(gain);
-            gain.connect(master);
-            osc.start();
-            nodes.push(osc, gain);
-        });
-
-        // Layer 2: soft noise (wind/room)
-        const bufSize = ctx.sampleRate * 2;
-        const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
-        const data = buf.getChannelData(0);
-        for (let i = 0; i < bufSize; i++) data[i] = (Math.random() * 2 - 1) * 0.018;
-        const noise = ctx.createBufferSource();
-        const noiseFilter = ctx.createBiquadFilter();
-        noiseFilter.type = 'lowpass';
-        noiseFilter.frequency.value = 800;
-        noise.buffer = buf;
-        noise.loop = true;
-        noise.connect(noiseFilter);
-        noiseFilter.connect(master);
-        noise.start();
-        nodes.push(noise, noiseFilter);
-
-        // Layer 3: gentle bell tones
-        function bell() {
-            if (!playing || !ctx) return;
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = 'sine';
-            osc.frequency.value = [220, 277.18, 329.63, 440][Math.floor(Math.random() * 4)];
-            gain.gain.setValueAtTime(0, ctx.currentTime);
-            gain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 0.05);
-            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3);
-            osc.connect(gain);
-            gain.connect(master);
-            osc.start(ctx.currentTime);
-            osc.stop(ctx.currentTime + 3.5);
-            setTimeout(bell, 3000 + Math.random() * 5000);
-        }
-        setTimeout(bell, 1500);
-
-        nodes.push(master);
-    }
-
-    btn.addEventListener('click', () => {
-        if (!ctx) buildAmbient();
-        if (playing) {
-            ctx.suspend();
-            btn.classList.remove('playing');
-            btn.setAttribute('aria-label', i18n.t('تشغيل الموسيقى المحيطة', 'Play ambient music'));
-        } else {
-            ctx.resume();
-            btn.classList.add('playing');
-            btn.setAttribute('aria-label', i18n.t('إيقاف الموسيقى', 'Stop ambient music'));
-        }
-        playing = !playing;
-    });
-
-    document.addEventListener('visibilitychange', () => {
-        if (!ctx) return;
-        if (document.hidden) ctx.suspend();
-        else if (playing) ctx.resume();
-    });
 }
 
 /* ── Hero GSAP Animations ────────────────────────────────────────── */
@@ -571,7 +485,11 @@ function renderNavbar() {
     ];
     const cur = location.pathname.split('/').pop() || 'index.html';
     return `
-  <a href="index.html" class="nav-logo" aria-label="Bazar Sa3eed Masr">Bazar <span>Sa3eed</span> Masr</a>
+  <a href="index.html" class="nav-logo" aria-label="Bazar Sa3eed Masr">
+  <span data-ar="بازار" data-en="Bazar">بازار</span>
+  <span class="logo-highlight" data-ar="صعيد" data-en="Sa3eed">صعيد</span>
+  <span data-ar="مصر" data-en="Masr">مصر</span>
+</a>
   <nav aria-label="Primary navigation">
     <ul class="nav-links">
       ${pages
@@ -613,7 +531,11 @@ function renderFooter() {
     return `
   <div class="footer-grid">
     <div class="footer-brand">
-     <div class="logo">Bazar <span>Sa3eed</span> Masr</div>
+     <div class="logo">
+    <span data-ar="بازار" data-en="Bazar">بازار</span>
+    <span class="logo-highlight" data-ar="صعيد" data-en="Sa3eed">صعيد</span>
+    <span data-ar="مصر" data-en="Masr">مصر</span>
+</div>
       <p data-ar="منصة تجمع حرفيي صعيد مصر بالعالم. نحتفظ بالتراث ونصنع المستقبل."
          data-en="A platform connecting Upper Egypt's artisans with the world.">
         منصة تجمع حرفيي صعيد مصر بالعالم. نحتفظ بالتراث ونصنع المستقبل.
@@ -695,13 +617,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerEl = document.querySelector('footer');
     if (footerEl) footerEl.innerHTML = renderFooter();
 
-    const audioBtn = document.getElementById('audio-toggle');
-    if (audioBtn && !audioBtn.innerHTML.trim()) {
-        audioBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
-      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
-    </svg>`;
-    }
-
     // Init all modules
     initLoader();
     initNavbar();
@@ -709,7 +624,6 @@ document.addEventListener('DOMContentLoaded', () => {
     i18n.init();
     initPageTransitions();
     initReveal();
-    initAudio();
     initLenis();
 
     if (typeof gsap !== 'undefined') {

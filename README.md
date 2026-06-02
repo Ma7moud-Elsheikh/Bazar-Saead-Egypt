@@ -29,7 +29,6 @@
 - Page transitions overlay
 - Journey pinned scroll section
 - Interactive SVG Egypt map
-- Ambient audio toggle
 - Grain texture overlay
 - Skeleton loaders
 - GSAP stagger animations
