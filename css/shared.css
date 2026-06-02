@@ -232,11 +232,16 @@ body.cursor-hover #cursor-follower {
     align-items: center;
     gap: 10px;
     text-decoration: none;
+    flex-wrap: wrap;
 }
 .logo-img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+.nav-logo .logo-img {
     width: 50px;
     height: 50px;
-    object-fit: contain;
 }
 #navbar.scrolled .nav-logo {
     color: var(--charcoal);
@@ -273,6 +278,11 @@ body.cursor-hover #cursor-follower {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+#btn-login {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+    min-height: 44px;
 }
 #lang-toggle {
     font-family: var(--font-accent);
@@ -3027,6 +3037,28 @@ footer {
     }
 }
 @media (max-width: 540px) {
+    .nav-logo{
+        font-size: 1.1rem;
+        gap: 5px;
+    }
+    .logo-text{
+        display: none;
+    }
+    .nav-logo .logo-img{
+        width: 70px;
+        height: 60px;
+    }
+    .nav-actions {
+        gap: 8px;
+    }
+    #btn-login {
+        padding: 7px 15px;
+        min-height: 40px;
+    }
+    #lang-toggle {
+        min-height: 40px;
+        min-width: 40px;
+    }
     .crafts-grid,
     .crafts-masonry {
         grid-template-columns: 1fr;

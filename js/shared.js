@@ -485,10 +485,14 @@ function renderNavbar() {
     ];
     const cur = location.pathname.split('/').pop() || 'index.html';
     return `
-  <a href="index.html" class="nav-logo" aria-label="Bazar Sa3eed Masr">
-  <span data-ar="بازار" data-en="Bazar">بازار</span>
-  <span class="logo-highlight" data-ar="صعيد" data-en="Sa3eed">صعيد</span>
-  <span data-ar="مصر" data-en="Masr">مصر</span>
+<a href="index.html" class="nav-logo" aria-label="Bazar Sa3eed Masr">
+    <img src="img/logo.png" alt="بازار صعيد مصر" class="logo-img" />
+
+    <div class="logo-text">
+        <span data-ar="بازار" data-en="Bazar">بازار</span>
+        <span class="logo-highlight" data-ar="صعيد" data-en="Sa3eed">صعيد</span>
+        <span data-ar="مصر" data-en="Masr">مصر</span>
+    </div>
 </a>
   <nav aria-label="Primary navigation">
     <ul class="nav-links">
@@ -501,8 +505,7 @@ function renderNavbar() {
     </ul>
   </nav>
   <div class="nav-actions">
-    <a href="login.html" class="btn btn-outline"
-       style="padding:8px 18px;font-size:.8rem;min-height:44px"
+    <a href="login.html" class="btn btn-outline" id="btn-login"
        data-ar="دخول" data-en="Login">دخول</a>
     <button id="lang-toggle" aria-label="Switch to English">EN</button>
     <button id="hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
@@ -532,6 +535,8 @@ function renderFooter() {
   <div class="footer-grid">
     <div class="footer-brand">
      <div class="logo">
+    <img src="img/logo.png" alt="بازار صعيد مصر" class="logo-img" />
+
     <span data-ar="بازار" data-en="Bazar">بازار</span>
     <span class="logo-highlight" data-ar="صعيد" data-en="Sa3eed">صعيد</span>
     <span data-ar="مصر" data-en="Masr">مصر</span>
