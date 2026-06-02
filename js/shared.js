@@ -164,6 +164,12 @@ function initNavbar() {
             mobileMenu.classList.toggle('open', open);
             hamburger.setAttribute('aria-expanded', String(open));
             document.body.style.overflow = open ? 'hidden' : '';
+
+            if (open) {
+                navbar.classList.add('menu-open');
+            } else {
+                navbar.classList.remove('menu-open');
+            }
         };
         hamburger.addEventListener('click', () => toggle(!hamburger.classList.contains('open')));
         mobileMenu
@@ -523,8 +529,8 @@ function renderMobileMenu() {
         { href: 'workshops.html', ar: 'ورش العمل', en: 'Workshops' },
         { href: 'about.html', ar: 'عن البازار', en: 'About' },
         { href: 'contact.html', ar: 'تواصل معنا', en: 'Contact' },
-        { href: 'login.html', ar: 'دخول', en: 'Login' },
-        { href: 'register.html', ar: 'إنشاء حساب', en: 'Register' }
+        // { href: 'login.html', ar: 'دخول', en: 'Login' },
+        // { href: 'register.html', ar: 'إنشاء حساب', en: 'Register' }
     ];
     return pages
         .map((p) => `<a href="${p.href}" data-ar="${p.ar}" data-en="${p.en}">${p.ar}</a>`)

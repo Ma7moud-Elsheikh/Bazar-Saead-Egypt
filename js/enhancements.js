@@ -294,37 +294,6 @@ function initNavIndicator() {
     }
 }
 
-/* ── 6. MOBILE MENU LANG TOGGLE ──────────────────────────────────── */
-function initMobileLangToggle() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (!mobileMenu) return;
-
-    // Inject footer with lang toggle into mobile menu
-    if (!document.getElementById('mobile-menu-footer')) {
-        const footer = document.createElement('div');
-        footer.id = 'mobile-menu-footer';
-        footer.innerHTML = `
-      <button id="mobile-lang-toggle"
-              aria-label="${i18n.currentLang === 'ar' ? 'Switch to English' : 'التحويل للعربية'}">
-        ${i18n.currentLang === 'ar' ? 'EN' : 'ع'}
-      </button>`;
-        mobileMenu.appendChild(footer);
-
-        document.getElementById('mobile-lang-toggle').addEventListener('click', () => {
-            i18n.toggle();
-            // Update button text
-            const btn = document.getElementById('mobile-lang-toggle');
-            if (btn) {
-                btn.textContent = i18n.currentLang === 'ar' ? 'EN' : 'ع';
-                btn.setAttribute(
-                    'aria-label',
-                    i18n.currentLang === 'ar' ? 'Switch to English' : 'التحويل للعربية'
-                );
-            }
-        });
-    }
-}
-
 /* ── BOOT ALL ENHANCEMENTS ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
