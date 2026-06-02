@@ -514,6 +514,7 @@ function renderNavbar() {
   </div>`;
 }
 
+// Mobile menu
 function renderMobileMenu() {
     const pages = [
         { href: 'index.html', ar: 'الرئيسية', en: 'Home' },
