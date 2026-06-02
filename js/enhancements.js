@@ -298,7 +298,6 @@ function initNavIndicator() {
 document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initNavIndicator();
-    initMobileLangToggle();
 
     // These need DOM fully rendered (after shared.js injects navbar/content)
     requestAnimationFrame(() => {

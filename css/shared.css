@@ -1,5 +1,5 @@
 /* ================================================================
-   بازار صعيد مصر — Complete Shared 
+   بازار صعيد مصر — Complete Shared
    All page styles consolidated here. No inline <style> blocks needed.
    ================================================================ */
 
@@ -412,7 +412,7 @@ footer {
 }
 .footer-col h4 {
     font-family: var(--font-accent);
-    font-size: 0.72rem;
+    /* font-size: 0.72rem; */
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--copper);
@@ -473,10 +473,6 @@ footer {
     margin: 0 auto;
     flex-wrap: wrap;
     gap: 8px;
-}
-.footer-bottom p {
-    font-size: 0.78rem;
-    /* opacity: 0.38; */
 }
 
 /* ── SKELETON LOADER ────────────────────────────────────────────── */
@@ -540,7 +536,7 @@ footer {
 /* ── SECTION HEADERS ────────────────────────────────────────────── */
 .section-eyebrow {
     font-family: var(--font-accent);
-    font-size: 0.72rem;
+    /* font-size: 0.72rem; */
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--copper);
@@ -1255,7 +1251,7 @@ footer {
     color: var(--offwhite);
     line-height: 0.95;
     letter-spacing: -0.03em;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 .hero-title-line {
     display: block;
@@ -2525,7 +2521,7 @@ footer {
 }
 .contact-info-label {
     font-family: var(--font-accent);
-    font-size: 0.7rem;
+    /* font-size: 0.7rem; */
     letter-spacing: 0.16em;
     color: var(--copper);
     text-transform: uppercase;

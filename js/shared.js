@@ -609,7 +609,7 @@ function renderFooter() {
   </div>
   <div class="footer-bottom">
    <p>© <span id="footer-year"></span> Bazar Sa3eed Masr. All rights reserved.</p>
-<p>Designed by <a href="https://mahmoud-elsheikh.vercel.app" target="_blank" rel="noopener noreferrer"
+<p>Designed by: <a href="https://mahmoud-elsheikh.vercel.app" target="_blank" rel="noopener noreferrer"
    style="color:var(--copper);text-decoration:none;transition:opacity .2s"
    onmouseenter="this.style.opacity='.7'" onmouseleave="this.style.opacity='1'">
    Mahmoud Elsheikh
