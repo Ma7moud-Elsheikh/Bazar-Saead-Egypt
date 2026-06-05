@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <title>الحرف — بازار صعيد مصر</title>
-        <!-- favicon -->
         <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
         <meta
             name="description"
@@ -18,19 +17,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
-            media="print"
-            onload="this.media = 'all'"
-        />
-        <noscript>
-            <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
-            />
-        </noscript>
         <link rel="stylesheet" href="css/shared.css" />
         <link rel="canonical" href="https://bazarsa3eed.com/crafts.html" />
         <meta
@@ -70,19 +56,11 @@
                 <div id="crafts-container">
                     <div class="crafts-masonry">
                         <div class="skeleton skeleton--craft-masonry"></div>
-                        <div
-                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"
-                        ></div>
-                        <div
-                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"
-                        ></div>
+                        <div class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"></div>
+                        <div class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"></div>
                         <div class="skeleton skeleton--craft-masonry"></div>
-                        <div
-                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"
-                        ></div>
-                        <div
-                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"
-                        ></div>
+                        <div class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"></div>
+                        <div class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"></div>
                     </div>
                 </div>
             </div>
@@ -92,6 +70,7 @@
 
         <script src="js/shared.js"></script>
         <script src="js/enhancements.js"></script>
+        <script src="js/cart.js"></script>
         <script>
             gsap.registerPlugin(ScrollTrigger);
 
@@ -99,57 +78,51 @@
                 const container = document.getElementById('crafts-container');
                 try {
                     const crafts = await fetch('data/crafts.json').then((r) => r.json());
-                    const lang = i18n.currentLang;
-                    container.innerHTML = `<div class="crafts-masonry">
-      ${crafts
-          .map(
-              (c, i) => `
-      <article class="craft-full-card" id="${c.slug}">
-        <a href="craft-single.html?slug=${c.slug}" aria-label="${c.name[lang]}">
-          <div class="craft-img-wrap">
-            <img src="${c.coverImage}" alt="${c.name[lang]}" loading="${i < 3 ? 'eager' : 'lazy'}"/>
-            <div class="craft-img-overlay">
-              <span data-ar="استكشف" data-en="Explore">${lang === 'ar' ? 'استكشف' : 'Explore'}</span>
-            </div>
-          </div>
-          <div class="craft-body">
-            <div class="craft-body-region" data-ar="${c.region.ar}" data-en="${c.region.en}">${c.region[lang]}</div>
-            <div class="craft-body-name" data-ar="${c.name.ar}" data-en="${c.name.en}">${c.name[lang]}</div>
-            <p class="craft-body-story" data-ar="${c.story.ar}" data-en="${c.story.en}">${c.story[lang]}</p>
-          </div>
-        </a>
-      </article>`
-          )
-          .join('')}
-    </div>`;
+                    const lang = window.i18n?.currentLang || 'ar';
 
-                    initReveal();
-                    gsap.from('.crafts-masonry article', {
-                        opacity: 0,
-                        y: 50,
-                        duration: 0.7,
-                        stagger: 0.12,
-                        ease: 'power2.out',
-                        clearProps: 'opacity,transform',
-                        scrollTrigger: { trigger: '.crafts-masonry', start: 'top 85%', once: true }
-                    });
+                    container.innerHTML = `<div class="crafts-masonry">
+                        ${crafts.map((c, i) => `
+                            <article class="craft-full-card" id="${c.slug}">
+                                <a href="craft-single.html?slug=${c.slug}" aria-label="${c.name[lang]}">
+                                    <div class="craft-img-wrap">
+                                        <img src="${c.coverImage}" alt="${c.name[lang]}" loading="${i < 3 ? 'eager' : 'lazy'}"/>
+                                        <div class="craft-img-overlay">
+                                            <span data-ar="استكشف" data-en="Explore">${lang === 'ar' ? 'استكشف' : 'Explore'}</span>
+                                        </div>
+                                    </div>
+                                    <div class="craft-body">
+                                        <div class="craft-body-region" data-ar="${c.region.ar}" data-en="${c.region.en}">${c.region[lang]}</div>
+                                        <div class="craft-body-name" data-ar="${c.name.ar}" data-en="${c.name.en}">${c.name[lang]}</div>
+                                        <p class="craft-body-story" data-ar="${c.story.ar}" data-en="${c.story.en}">${c.story[lang]}</p>
+                                    </div>
+                                </a>
+                                <a href="shop.html?craft=${c.slug}" class="btn-outline" data-ar="تسوق الحرفة" data-en="Shop This Craft">
+                                    ${lang === 'ar' ? 'تسوق الحرفة' : 'Shop This Craft'}
+                                </a>
+                            </article>
+                        `).join('')}
+                    </div>`;
+
+                    if (typeof initReveal === 'function') initReveal();
+
                     gsap.from('.craft-full-card', {
                         opacity: 0,
-                        y: 60,
-                        duration: 0.7,
-                        stagger: 0.1,
-                        ease: 'power2.out',
-                        scrollTrigger: { trigger: '.crafts-masonry', start: 'top 85%', once: true }
+                        y: 50,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: '.crafts-masonry',
+                            start: 'top 85%',
+                            once: true
+                        }
                     });
 
-                    // Jump to hash
                     if (location.hash) {
                         const el = document.querySelector(location.hash);
-                        if (el)
-                            setTimeout(
-                                () => el.scrollIntoView({ behavior: 'smooth', block: 'center' }),
-                                400
-                            );
+                        if (el) {
+                            setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 400);
+                        }
                     }
 
                     window._onLangChange = (lang) => {
@@ -160,13 +133,18 @@
                             card.querySelector('.craft-body-name').textContent = c.name[lang];
                             card.querySelector('.craft-body-story').textContent = c.story[lang];
                             card.querySelector('a').setAttribute('aria-label', c.name[lang]);
+
+                            const btnOutline = card.querySelector('.btn-outline');
+                            if (btnOutline) {
+                                btnOutline.textContent = lang === 'ar' ? 'تسوق الحرفة' : 'Shop This Craft';
+                            }
+
                             const ov = card.querySelector('.craft-img-overlay span');
                             if (ov) ov.textContent = lang === 'ar' ? 'استكشف' : 'Explore';
                         });
                     };
                 } catch (e) {
-                    container.innerHTML =
-                        '<p class="state-error state-error--padded">تعذّر تحميل البيانات</p>';
+                    container.innerHTML = '<p class="state-error state-error--padded">تعذّر تحميل البيانات</p>';
                 }
             }
             loadCrafts();

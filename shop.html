@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>المتجر — بازار صعيد مصر</title>
+        <!-- favicon -->
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+        <meta
+            name="description"
+            content="تسوق منتجات يدوية أصيلة من صعيد مصر — فخار، نسيج، تطريز، نحاسيات، أعمال خشبية وزجاج فسيفساء."
+        />
+        <meta property="og:site_name" content="بازار صعيد مصر" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="المتجر — بازار صعيد مصر" />
+        <meta property="og:description" content="منتجات يدوية أصيلة من صعيد مصر" />
+        <meta
+            property="og:image"
+            content="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&h=630&fit=crop&auto=format"
+        />
+        <meta property="og:url" content="https://bazarsa3eed.com/shop.html" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="theme-color" content="#B87333" />
+        <link rel="canonical" href="https://bazarsa3eed.com/shop.html" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
+        <link rel="stylesheet" href="css/shared.css" />
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link" data-ar="انتقل للمحتوى" data-en="Skip to content">
+            انتقل للمحتوى
+        </a>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div id="cursor" aria-hidden="true"></div>
+        <div id="cursor-follower" aria-hidden="true"></div>
+        <div id="page-transition" aria-hidden="true"></div>
+        <header><nav id="navbar" aria-label="التنقل الرئيسي"></nav></header>
+        <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="قائمة التنقل"></div>
+
+        <!-- Toast -->
+        <div id="cart-toast" role="status" aria-live="polite" aria-atomic="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+            <span class="cart-toast-text"></span>
+            <a href="cart.html" class="cart-toast-link" data-ar="عرض السلة" data-en="View Cart">
+                عرض السلة
+            </a>
+        </div>
+
+        <main id="main-content">
+            <!-- Page hero -->
+            <section class="page-hero page-hero--short" aria-labelledby="shop-h1">
+                <div class="page-hero-bg shop-hero-bg"></div>
+                <div class="page-hero-content">
+                    <h1 id="shop-h1" data-ar="المتجر" data-en="Shop">المتجر</h1>
+                    <p
+                        data-ar="منتجات يدوية أصيلة من أمهر حرفيي صعيد مصر."
+                        data-en="Authentic handmade products from Upper Egypt's finest artisans."
+                    >
+                        منتجات يدوية أصيلة من أمهر حرفيي صعيد مصر.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Shop layout -->
+            <div class="shop-layout">
+                <!-- ── Sidebar filters ── -->
+                <aside aria-label="تصفية المنتجات">
+                    <div class="shop-sidebar-inner">
+                        <!-- Craft filter -->
+                        <div class="filter-section">
+                            <h2 class="filter-section-title">
+                                <span data-ar="الحرفة" data-en="Craft">الحرفة</span>
+                                <button
+                                    class="filter-clear-btn"
+                                    data-group="craft"
+                                    aria-label="مسح تصفية الحرفة"
+                                    data-ar="مسح"
+                                    data-en="Clear"
+                                >
+                                    مسح
+                                </button>
+                            </h2>
+                            <div
+                                id="filter-crafts"
+                                role="group"
+                                aria-label="تصفية حسب الحرفة"
+                            ></div>
+                        </div>
+
+                        <!-- Region filter -->
+                        <div class="filter-section">
+                            <h2 class="filter-section-title">
+                                <span data-ar="المحافظة" data-en="Region">المحافظة</span>
+                                <button
+                                    class="filter-clear-btn"
+                                    data-group="region"
+                                    aria-label="مسح تصفية المحافظة"
+                                    data-ar="مسح"
+                                    data-en="Clear"
+                                >
+                                    مسح
+                                </button>
+                            </h2>
+                            <div
+                                id="filter-regions"
+                                role="group"
+                                aria-label="تصفية حسب المحافظة"
+                            ></div>
+                        </div>
+
+                        <!-- Price filter -->
+                        <div class="filter-section">
+                            <h2 class="filter-section-title">
+                                <span data-ar="السعر" data-en="Price">السعر</span>
+                                <button
+                                    class="filter-clear-btn"
+                                    data-group="price"
+                                    aria-label="مسح تصفية السعر"
+                                    data-ar="مسح"
+                                    data-en="Clear"
+                                >
+                                    مسح
+                                </button>
+                            </h2>
+                            <div class="price-range-wrap">
+                                <div class="price-range-inputs">
+                                    <input
+                                        type="number"
+                                        class="price-range-input"
+                                        id="price-min"
+                                        min="0"
+                                        data-ar-placeholder="من"
+                                        data-en-placeholder="Min"
+                                        placeholder="من"
+                                        aria-label="الحد الأدنى للسعر"
+                                    />
+                                    <input
+                                        type="number"
+                                        class="price-range-input"
+                                        id="price-max"
+                                        min="0"
+                                        data-ar-placeholder="إلى"
+                                        data-en-placeholder="Max"
+                                        placeholder="إلى"
+                                        aria-label="الحد الأقصى للسعر"
+                                    />
+                                </div>
+                                <input
+                                    type="range"
+                                    class="price-range-slider"
+                                    id="price-slider"
+                                    min="0"
+                                    max="3000"
+                                    value="3000"
+                                    step="50"
+                                    aria-label="تحديد الحد الأقصى للسعر"
+                                />
+                                <div class="price-range-labels">
+                                    <span>0</span>
+                                    <span id="price-slider-val">
+                                        3000
+                                        <span data-ar="جنيه" data-en="EGP">جنيه</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="filter-apply-btn"
+                            id="apply-filters"
+                            data-ar="تطبيق الفلتر"
+                            data-en="Apply Filter"
+                        >
+                            تطبيق الفلتر
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- ── Main content ── -->
+                <div class="shop-main">
+                    <!-- Toolbar -->
+                    <div class="shop-toolbar" role="search">
+                        <div class="shop-search-wrap">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            <input
+                                type="search"
+                                class="shop-search"
+                                id="shop-search"
+                                data-ar-placeholder="ابحث عن منتج أو حرفي..."
+                                data-en-placeholder="Search products or artisans..."
+                                placeholder="ابحث عن منتج أو حرفي..."
+                                aria-label="البحث في المنتجات"
+                            />
+                        </div>
+                        <select class="shop-sort" id="shop-sort" aria-label="ترتيب المنتجات">
+                            <option value="default" data-ar="الترتيب الافتراضي" data-en="Default">
+                                الترتيب الافتراضي
+                            </option>
+                            <option
+                                value="price-asc"
+                                data-ar="السعر: الأقل أولاً"
+                                data-en="Price: Low to High"
+                            >
+                                السعر: الأقل أولاً
+                            </option>
+                            <option
+                                value="price-desc"
+                                data-ar="السعر: الأعلى أولاً"
+                                data-en="Price: High to Low"
+                            >
+                                السعر: الأعلى أولاً
+                            </option>
+                            <option value="rating" data-ar="الأعلى تقييماً" data-en="Top Rated">
+                                الأعلى تقييماً
+                            </option>
+                            <option
+                                value="featured"
+                                data-ar="المميزة أولاً"
+                                data-en="Featured First"
+                            >
+                                المميزة أولاً
+                            </option>
+                        </select>
+                        <p class="shop-count" id="shop-count" aria-live="polite"></p>
+                    </div>
+
+                    <!-- Active filter pills -->
+                    <div
+                        class="active-filters"
+                        id="active-filters"
+                        aria-label="الفلاتر النشطة"
+                        role="list"
+                    ></div>
+
+                    <!-- Product grid -->
+                    <div
+                        class="product-grid"
+                        id="product-grid"
+                        aria-label="المنتجات"
+                        aria-live="polite"
+                    >
+                        <!-- Skeletons -->
+                        <div class="skeleton skeleton--shop-card"></div>
+                        <div class="skeleton skeleton--shop-card"></div>
+                        <div class="skeleton skeleton--shop-card"></div>
+                        <div class="skeleton skeleton--shop-card"></div>
+                        <div class="skeleton skeleton--shop-card"></div>
+                        <div class="skeleton skeleton--shop-card"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer role="contentinfo"></footer>
+
+        <script src="js/shared.js"></script>
+        <script src="js/cart.js"></script>
+        <script src="js/enhancements.js"></script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            // ── State ────────────────────────────────────────────────────────
+            let allProducts = [];
+            let activeFilters = { crafts: [], regions: [], priceMin: 0, priceMax: 3000 };
+
+            // ── Stars helper ─────────────────────────────────────────────────
+            function starsHTML(rating) {
+                return Array.from({ length: 5 }, (_, i) => {
+                    const full = i < Math.floor(rating);
+                    return `<svg class="star${full ? '' : ' star--empty'}" viewBox="0 0 24 24" aria-hidden="true">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>`;
+                }).join('');
+            }
+
+            // ── Build product card ────────────────────────────────────────────
+            function buildCard(p, lang) {
+                const name = p.name[lang];
+                const artisan = p.artisanName[lang];
+                const craft = p.craftName[lang];
+                const price = Cart.formatPrice(p.price, lang);
+                const oldPrice = p.oldPrice ? Cart.formatPrice(p.oldPrice, lang) : null;
+                const save = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+                const lowStock = p.stock <= 3;
+
+                return `
+  <article class="product-card">
+    <a href="product.html?id=${p.id}" aria-label="${name}">
+      <div class="product-card-img-wrap">
+        <img src="${p.images[0]}" alt="${name}" loading="lazy" width="400" height="400"/>
+        <div class="product-badges">
+          ${p.featured ? `<span class="product-badge product-badge--featured" data-ar="مميز" data-en="Featured">${lang === 'ar' ? 'مميز' : 'Featured'}</span>` : ''}
+          ${p.oldPrice ? `<span class="product-badge product-badge--sale">-${save}%</span>` : ''}
+          ${lowStock ? `<span class="product-badge product-badge--lowstock" data-ar="آخر ${p.stock}" data-en="${p.stock} left">${lang === 'ar' ? `آخر ${p.stock}` : `${p.stock} left`}</span>` : ''}
+        </div>
+        <button class="product-card-quick-add" data-id="${p.id}"
+                aria-label="${lang === 'ar' ? 'إضافة إلى السلة' : 'Add to cart'}: ${name}">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span data-ar="أضف للسلة" data-en="Add to Cart">${lang === 'ar' ? 'أضف للسلة' : 'Add to Cart'}</span>
+        </button>
+      </div>
+    </a>
+    <div class="product-card-body">
+      <a href="crafts.html#${p.craftSlug}" class="product-card-craft">${craft}</a>
+      <a href="product.html?id=${p.id}" class="product-card-name">${name}</a>
+      <p class="product-card-desc" lang="${lang}">${p.description[lang]}</p>
+      <a href="artisan-single.html?id=${p.artisanId}" class="product-card-artisan">
+        <img class="product-card-artisan-img" src="${p.artisanPortrait}"
+             alt="${artisan}" loading="lazy" width="24" height="24"/>
+        <span class="product-card-artisan-name">${artisan}</span>
+      </a>
+      <div class="product-card-rating" aria-label="التقييم: ${p.rating} من 5">
+        <div class="stars" aria-hidden="true">${starsHTML(p.rating)}</div>
+        <span class="rating-count">(${p.reviews})</span>
+      </div>
+      <div class="product-card-footer">
+        <div class="product-card-price-wrap">
+          <span class="product-card-price">${price}</span>
+          ${oldPrice ? `<span class="product-card-old-price">${oldPrice}</span>` : ''}
+        </div>
+        <button class="product-card-add-btn" data-id="${p.id}"
+                aria-label="${lang === 'ar' ? 'أضف إلى السلة' : 'Add to cart'}: ${name}">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+    </div>
+  </article>`;
+            }
+
+            // ── Filter + render ───────────────────────────────────────────────
+            function applyAndRender() {
+                const lang = i18n.currentLang;
+                const query = document.getElementById('shop-search').value.trim().toLowerCase();
+                const sortVal = document.getElementById('shop-sort').value;
+                const priceMin = parseInt(document.getElementById('price-min').value || 0);
+                const priceMax = parseInt(document.getElementById('price-max').value || 9999);
+
+                let filtered = allProducts.filter((p) => {
+                    if (activeFilters.crafts.length && !activeFilters.crafts.includes(p.craftSlug))
+                        return false;
+                    if (
+                        activeFilters.regions.length &&
+                        !activeFilters.regions.includes(p.regionKey)
+                    )
+                        return false;
+                    if (p.price < priceMin || p.price > priceMax) return false;
+                    if (query) {
+                        const haystack = [
+                            p.name.ar,
+                            p.name.en,
+                            p.artisanName.ar,
+                            p.artisanName.en,
+                            p.craftName.ar,
+                            p.craftName.en,
+                            p.region.ar,
+                            p.region.en
+                        ]
+                            .join(' ')
+                            .toLowerCase();
+                        if (!haystack.includes(query)) return false;
+                    }
+                    return true;
+                });
+
+                // Sort
+                if (sortVal === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+                if (sortVal === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+                if (sortVal === 'rating') filtered.sort((a, b) => b.rating - a.rating);
+                if (sortVal === 'featured')
+                    filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+                // Count
+                const countEl = document.getElementById('shop-count');
+                if (countEl)
+                    countEl.textContent =
+                        lang === 'ar'
+                            ? `${filtered.length} منتج`
+                            : `${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+
+                // Render
+                const grid = document.getElementById('product-grid');
+                if (!filtered.length) {
+                    grid.innerHTML = `
+      <div class="shop-empty">
+        <div class="shop-empty-icon" aria-hidden="true">🔍</div>
+        <h3 data-ar="لا توجد نتائج" data-en="No results found">${lang === 'ar' ? 'لا توجد نتائج' : 'No results found'}</h3>
+        <p data-ar="جرّب تغيير الفلتر أو البحث بكلمة أخرى" data-en="Try changing your filters or search term">${lang === 'ar' ? 'جرّب تغيير الفلتر أو البحث بكلمة أخرى' : 'Try changing your filters or search term'}</p>
+      </div>`;
+                    return;
+                }
+
+                grid.innerHTML = filtered.map((p) => buildCard(p, lang)).join('');
+                renderActivePills();
+
+                // Animate in
+                gsap.from('#product-grid .product-card', {
+                    opacity: 0,
+                    y: 40,
+                    duration: 0.55,
+                    stagger: 0.06,
+                    ease: 'power2.out',
+                    clearProps: 'opacity,transform'
+                });
+
+                // Wire up add-to-cart buttons
+                grid.querySelectorAll('[data-id]').forEach((btn) => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const product = allProducts.find((p) => p.id === btn.dataset.id);
+                        if (!product) return;
+                        Cart.add(product, 1);
+                        showToast(product, lang);
+                        btn.classList.add('added');
+                        setTimeout(() => btn.classList.remove('added'), 1500);
+                    });
+                });
+            }
+
+            // Show featured badge on first load
+            if (!activeFilters.crafts.length && !activeFilters.regions.length) {
+                document.querySelectorAll('[data-featured="true"]').forEach((el) => {
+                    el.style.order = '-1';
+                });
+            }
+
+            // ── Active filter pills ───────────────────────────────────────────
+            function renderActivePills() {
+                const lang = i18n.currentLang;
+                const wrap = document.getElementById('active-filters');
+                const pills = [];
+
+                activeFilters.crafts.forEach((slug) => {
+                    const p = allProducts.find((x) => x.craftSlug === slug);
+                    if (p) pills.push({ label: p.craftName[lang], type: 'craft', val: slug });
+                });
+                activeFilters.regions.forEach((key) => {
+                    const p = allProducts.find((x) => x.regionKey === key);
+                    if (p) pills.push({ label: p.region[lang], type: 'region', val: key });
+                });
+                const minEl = document.getElementById('price-min');
+                const maxEl = document.getElementById('price-max');
+                if (minEl?.value)
+                    pills.push({
+                        label: `${lang === 'ar' ? 'من' : 'From'} ${minEl.value}`,
+                        type: 'priceMin',
+                        val: ''
+                    });
+                if (maxEl?.value)
+                    pills.push({
+                        label: `${lang === 'ar' ? 'إلى' : 'To'} ${maxEl.value}`,
+                        type: 'priceMax',
+                        val: ''
+                    });
+
+                wrap.innerHTML = pills
+                    .map(
+                        (pill) => `
+    <div class="active-filter-pill" role="listitem">
+      ${pill.label}
+      <button aria-label="${lang === 'ar' ? 'إزالة' : 'Remove'} ${pill.label}"
+              data-type="${pill.type}" data-val="${pill.val}">✕</button>
+    </div>`
+                    )
+                    .join('');
+
+                wrap.querySelectorAll('button').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const { type, val } = btn.dataset;
+                        if (type === 'craft')
+                            activeFilters.crafts = activeFilters.crafts.filter((x) => x !== val);
+                        if (type === 'region')
+                            activeFilters.regions = activeFilters.regions.filter((x) => x !== val);
+                        if (type === 'priceMin') {
+                            document.getElementById('price-min').value = '';
+                        }
+                        if (type === 'priceMax') {
+                            document.getElementById('price-max').value = '';
+                        }
+                        // Uncheck corresponding checkbox
+                        const cb = document.querySelector(
+                            `input[data-filter-type="${type}"][value="${val}"]`
+                        );
+                        if (cb) cb.checked = false;
+                        applyAndRender();
+                    });
+                });
+            }
+
+            // ── Toast ─────────────────────────────────────────────────────────
+            let toastTimer;
+            function showToast(product, lang) {
+                const toast = document.getElementById('cart-toast');
+                const text = toast.querySelector('.cart-toast-text');
+                text.textContent =
+                    lang === 'ar' ? `تمت الإضافة: ${product.name.ar}` : `Added: ${product.name.en}`;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+
+            // ── Build filter checkboxes ────────────────────────────────────────
+            function buildFilters(products) {
+                const lang = i18n.currentLang;
+
+                // Crafts
+                const crafts = [
+                    ...new Map(products.map((p) => [p.craftSlug, p.craftName])).entries()
+                ];
+                document.getElementById('filter-crafts').innerHTML = crafts
+                    .map(([slug, name]) => {
+                        const count = products.filter((p) => p.craftSlug === slug).length;
+                        return `
+      <label class="filter-item">
+        <input type="checkbox" value="${slug}" data-filter-type="craft"
+               aria-label="${name[lang]}" ${activeFilters.crafts.includes(slug) ? 'checked' : ''}/>
+        <span>${name[lang]} <span class="filter-item-count">${count}</span></span>
+      </label>`;
+                    })
+                    .join('');
+
+                // Regions
+                const regions = [
+                    ...new Map(products.map((p) => [p.regionKey, p.region])).entries()
+                ];
+                document.getElementById('filter-regions').innerHTML = regions
+                    .map(([key, region]) => {
+                        const count = products.filter((p) => p.regionKey === key).length;
+                        return `
+      <label class="filter-item">
+        <input type="checkbox" value="${key}" data-filter-type="region"
+               aria-label="${region[lang]}" ${activeFilters.regions.includes(key) ? 'checked' : ''}/>
+        <span>${region[lang]} <span class="filter-item-count">${count}</span></span>
+      </label>`;
+                    })
+                    .join('');
+
+                // Wire checkboxes
+                document.querySelectorAll('input[data-filter-type]').forEach((cb) => {
+                    cb.addEventListener('change', () => {
+                        const type = cb.dataset.filterType;
+                        if (type === 'craft') {
+                            if (cb.checked) activeFilters.crafts.push(cb.value);
+                            else
+                                activeFilters.crafts = activeFilters.crafts.filter(
+                                    (x) => x !== cb.value
+                                );
+                        }
+                        if (type === 'region') {
+                            if (cb.checked) activeFilters.regions.push(cb.value);
+                            else
+                                activeFilters.regions = activeFilters.regions.filter(
+                                    (x) => x !== cb.value
+                                );
+                        }
+                        applyAndRender();
+                    });
+                });
+
+                // Clear buttons
+                document.querySelectorAll('.filter-clear-btn').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const group = btn.dataset.group;
+                        if (group === 'craft') {
+                            activeFilters.crafts = [];
+                            document
+                                .querySelectorAll('input[data-filter-type=craft]')
+                                .forEach((cb) => (cb.checked = false));
+                        }
+                        if (group === 'region') {
+                            activeFilters.regions = [];
+                            document
+                                .querySelectorAll('input[data-filter-type=region]')
+                                .forEach((cb) => (cb.checked = false));
+                        }
+                        if (group === 'price') {
+                            document.getElementById('price-min').value = '';
+                            document.getElementById('price-max').value = '';
+                            document.getElementById('price-slider').value = 3000;
+                            document.getElementById('price-slider-val').firstChild.textContent =
+                                '3000 ';
+                        }
+                        applyAndRender();
+                    });
+                });
+            }
+
+            // ── Price slider ──────────────────────────────────────────────────
+            document.getElementById('price-slider').addEventListener('input', function () {
+                document.getElementById('price-slider-val').firstChild.textContent =
+                    this.value + ' ';
+                document.getElementById('price-max').value = this.value;
+            });
+            document.getElementById('apply-filters').addEventListener('click', applyAndRender);
+            document
+                .getElementById('shop-search')
+                .addEventListener('input', debounce(applyAndRender, 280));
+            document.getElementById('shop-sort').addEventListener('change', applyAndRender);
+
+            function debounce(fn, ms) {
+                let t;
+                return (...args) => {
+                    clearTimeout(t);
+                    t = setTimeout(() => fn(...args), ms);
+                };
+            }
+
+            // ── URL param filter (from map click) ────────────────────────────
+            const urlParams = new URLSearchParams(location.search);
+            if (urlParams.get('craft')) activeFilters.crafts = [urlParams.get('craft')];
+            if (urlParams.get('region')) activeFilters.regions = [urlParams.get('region')];
+
+            // ── Init ──────────────────────────────────────────────────────────
+            async function init() {
+                try {
+                    allProducts = await fetch('data/products.json').then((r) => r.json());
+                    buildFilters(allProducts);
+                    applyAndRender();
+
+                    // Re-render on lang change
+                    window._onLangChange = () => {
+                        buildFilters(allProducts);
+                        applyAndRender();
+                    };
+                } catch (e) {
+                    document.getElementById('product-grid').innerHTML =
+                        '<p class="state-error state-error--padded">تعذّر تحميل المنتجات</p>';
+                }
+            }
+            init();
+        </script>
+    </body>
+</html>

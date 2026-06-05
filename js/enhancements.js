@@ -55,62 +55,6 @@ function initScrollProgress() {
     update(); // initial
 }
 
-/* ── 2. TEXT SPLIT ANIMATION ─────────────────────────────────────── */
-function initTextSplit() {
-    if (typeof gsap === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    // Split section titles into chars on scroll reveal
-    const targets = document.querySelectorAll('.section-title');
-
-    targets.forEach((el) => {
-        // Skip if already split or inside a card (avoid splitting card titles)
-        if (el.closest('.card') || el.closest('.artisan-card-full') || el.dataset.split) return;
-
-        const original = el.innerHTML;
-        const lang = document.documentElement.lang;
-        el.dataset.split = 'true';
-        el.dataset.original = original;
-
-        // Split into chars wrapped in spans
-        const text = el.textContent;
-        el.classList.add('is-splitting');
-        el.innerHTML = text
-            .split('')
-            .map((ch) =>
-                ch === ' '
-                    ? '<span class="word-split">&nbsp;</span>'
-                    : `<span class="char-split">${ch}</span>`
-            )
-            .join('');
-        el.classList.remove('is-splitting');
-        el.classList.add('split-done');
-
-        // Animate on scroll into view
-        const obs = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) return;
-
-                    const chars = el.querySelectorAll('.char-split');
-                    gsap.to(chars, {
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.6,
-                        stagger: lang === 'ar' ? -0.025 : 0.025, // RTL: right to left stagger
-                        ease: 'power3.out',
-                        delay: 0.1
-                    });
-                    obs.unobserve(el);
-                });
-            },
-            { threshold: 0.3 }
-        );
-
-        obs.observe(el);
-    });
-}
-
 /* ── 3. NUMBER COUNTER ───────────────────────────────────────────── */
 function initCounters() {
     if (typeof gsap === 'undefined') return;
@@ -302,7 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // These need DOM fully rendered (after shared.js injects navbar/content)
     requestAnimationFrame(() => {
         initMagneticButtons();
-        initTextSplit();
         initCounters();
     });
 });
@@ -311,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // (craft-single / artisan-single inject content via fetch)
 window._onContentLoaded = function () {
     requestAnimationFrame(() => {
-        initTextSplit();
         initMagneticButtons();
     });
 };

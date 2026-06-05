@@ -21,18 +21,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
-            media="print"
-            onload="this.media = 'all'"
-        />
-        <noscript>
-            <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
-            />
-        </noscript>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
@@ -68,6 +56,7 @@
         <header><nav id="navbar" aria-label="التنقل الرئيسي"></nav></header>
         <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="قائمة التنقل"></div>
 
+        <!-- main -->
         <main id="main-content">
             <!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
             <section id="hero" aria-labelledby="hero-h1">
@@ -603,11 +592,70 @@
                     روح صعيد مصر
                 </p>
             </section>
+
+            <!-- shop section -->
+            <section id="shop-cta-section" aria-labelledby="shop-cta-h2">
+                <div class="shop-cta-inner">
+                    <span class="section-eyebrow reveal" data-ar="متجرنا" data-en="Our Shop">
+                        متجرنا
+                    </span>
+                    <h2
+                        class="section-title reveal reveal-delay-1"
+                        id="shop-cta-h2"
+                        data-ar="اشترِ مباشرةً من الحرفيين"
+                        data-en="Buy Directly from Artisans"
+                    >
+                        اشترِ مباشرةً من الحرفيين
+                    </h2>
+                    <p
+                        class="section-subtitle shop-cta-subtitle reveal reveal-delay-2"
+                        data-ar="منتجات يدوية أصيلة — كل عملية شراء تدعم حرفياً وعائلته مباشرةً."
+                        data-en="Authentic handmade products — every purchase directly supports an artisan and their family."
+                    >
+                        منتجات يدوية أصيلة — كل عملية شراء تدعم حرفياً وعائلته مباشرةً.
+                    </p>
+                    <div class="shop-cta-stats">
+                        <div>
+                            <strong>120+</strong>
+                            <span>حرفي</span>
+                        </div>
+
+                        <div>
+                            <strong>35+</strong>
+                            <span>حرفة</span>
+                        </div>
+
+                        <div>
+                            <strong>1000+</strong>
+                            <span>منتج</span>
+                        </div>
+                    </div>
+                    <div class="shop-cta-btns reveal reveal-delay-3">
+                        <a
+                            href="shop.html"
+                            class="btn btn-primary"
+                            data-ar="تسوق الآن"
+                            data-en="Shop Now"
+                        >
+                            تسوق الآن
+                        </a>
+                        <a
+                            href="shop.html"
+                            class="btn btn-outline"
+                            data-ar="عرض كل المنتجات"
+                            data-en="View All Products"
+                        >
+                            عرض كل المنتجات
+                        </a>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer role="contentinfo"></footer>
 
         <script src="js/shared.js"></script>
         <script src="js/enhancements.js"></script>
+        <script src="js/cart.js"></script>
         <script>
             gsap.registerPlugin(ScrollTrigger);
 
@@ -621,16 +669,58 @@
                         .map(
                             (c, i) => `
       <article>
+
         <a href="craft-single.html?slug=${c.slug}" class="craft-card" aria-label="${c.name[lang]}">
-          <img src="${c.coverImage}" alt="${c.name[lang]}" loading="${i < 3 ? 'eager' : 'lazy'}" ${i < 3 ? 'fetchpriority="high"' : ''}/>
-          <div class="craft-overlay">
-            <p class="craft-region" data-ar="${c.region.ar}" data-en="${c.region.en}">${c.region[lang]}</p>
-            <h3 class="craft-name" data-ar="${c.name.ar}" data-en="${c.name.en}">${c.name[lang]}</h3>
+
+    <div class="craft-badge"
+     data-ar="صناعة يدوية"
+     data-en="Handmade">
+     ${lang === 'ar' ? 'صناعة يدوية' : 'Handmade'}
+</div>
+
+    <img src="${c.coverImage}"
+         alt="${c.name[lang]}"
+         loading="${i < 3 ? 'eager' : 'lazy'}"
+         ${i < 3 ? 'fetchpriority="high"' : ''}/>
+
+    <div class="craft-overlay">
+
+        <p class="craft-region"
+           data-ar="${c.region.ar}"
+           data-en="${c.region.en}">
+            ${c.region[lang]}
+        </p>
+
+        <h3 class="craft-name"
+            data-ar="${c.name.ar}"
+            data-en="${c.name.en}">
+            ${c.name[lang]}
+        </h3>
+
+        <div class="craft-footer">
+
+            <span class="craft-link"
+                  data-ar="استكشف الحرفة"
+                  data-en="Explore Craft">
+                ${lang === 'ar' ? 'استكشف الحرفة' : 'Explore Craft'}
+            </span>
+
             <div class="craft-arrow" aria-hidden="true">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="14"
+                     height="14"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="white"
+                     stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
             </div>
-          </div>
-        </a>
+
+        </div>
+
+    </div>
+
+</a>
       </article>`
                         )
                         .join('');

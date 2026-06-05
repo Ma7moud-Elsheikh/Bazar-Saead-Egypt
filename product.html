@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>المنتج — بازار صعيد مصر</title>
+        <!-- favicon -->
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+        <meta name="description" content="تفاصيل المنتج — بازار صعيد مصر" />
+        <meta property="og:site_name" content="بازار صعيد مصر" />
+        <meta property="og:type" content="product" />
+        <meta property="og:title" content="المنتج — بازار صعيد مصر" />
+        <meta
+            property="og:image"
+            content="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&h=630&fit=crop&auto=format"
+        />
+        <meta property="og:url" content="https://bazarsa3eed.com/product.html" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="theme-color" content="#B87333" />
+        <link rel="canonical" href="https://bazarsa3eed.com/product.html" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap"
+        />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
+        <link rel="stylesheet" href="css/shared.css" />
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link" data-ar="انتقل للمحتوى" data-en="Skip to content">
+            انتقل للمحتوى
+        </a>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div id="cursor" aria-hidden="true"></div>
+        <div id="cursor-follower" aria-hidden="true"></div>
+        <div id="page-transition" aria-hidden="true"></div>
+        <header><nav id="navbar" aria-label="التنقل الرئيسي"></nav></header>
+        <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="قائمة التنقل"></div>
+
+        <!-- Toast -->
+        <div id="cart-toast" role="status" aria-live="polite" aria-atomic="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+            <span class="cart-toast-text"></span>
+            <a href="cart.html" class="cart-toast-link" data-ar="عرض السلة" data-en="View Cart">
+                عرض السلة
+            </a>
+        </div>
+
+        <main id="main-content">
+            <!-- Skeleton -->
+            <div id="product-skeleton">
+                <div class="product-detail-layout">
+                    <div class="skeleton--craft-single-aside">
+                        <div class="skeleton skeleton--slider-main"></div>
+                        <div class="slider-thumbs-skeleton">
+                            <div class="skeleton skeleton--slider-thumb"></div>
+                            <div class="skeleton skeleton--slider-thumb"></div>
+                            <div class="skeleton skeleton--slider-thumb"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton--craft-single-main skeleton--product-info">
+                        <div class="skeleton skeleton--line-xs"></div>
+                        <div class="skeleton skeleton--line-lg"></div>
+                        <div class="skeleton skeleton--line-sm"></div>
+                        <div class="skeleton skeleton--line-sm-short"></div>
+                        <div class="skeleton skeleton--add-btn"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content injected by JS -->
+            <div id="product-content" hidden></div>
+        </main>
+
+        <footer role="contentinfo"></footer>
+
+        <script src="js/shared.js"></script>
+        <script src="js/cart.js"></script>
+        <script src="js/enhancements.js"></script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            // ── Stars ────────────────────────────────────────────────────────
+            function starsHTML(r) {
+                return Array.from(
+                    { length: 5 },
+                    (_, i) =>
+                        `<svg class="star${i < Math.floor(r) ? '' : ' star--empty'}" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+                ).join('');
+            }
+
+            // ── Slider logic ─────────────────────────────────────────────────
+            let currentSlide = 0;
+            function initSlider(images, altBase) {
+                const mainImg = document.getElementById('slider-main-img');
+                const thumbs = document.querySelectorAll('.product-slider-thumb');
+
+                function goTo(idx) {
+                    currentSlide = (idx + images.length) % images.length;
+                    mainImg.style.opacity = '0';
+                    setTimeout(() => {
+                        mainImg.src = images[currentSlide];
+                        mainImg.alt = `${altBase} — ${currentSlide + 1}`;
+                        mainImg.style.opacity = '1';
+                    }, 150);
+                    thumbs.forEach((t, i) => t.classList.toggle('active', i === currentSlide));
+                }
+
+                document
+                    .getElementById('slider-prev')
+                    .addEventListener('click', () => goTo(currentSlide - 1));
+                document
+                    .getElementById('slider-next')
+                    .addEventListener('click', () => goTo(currentSlide + 1));
+                thumbs.forEach((t, i) => t.addEventListener('click', () => goTo(i)));
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft')
+                        goTo(currentSlide + (document.dir === 'rtl' ? 1 : -1));
+                    if (e.key === 'ArrowRight')
+                        goTo(currentSlide + (document.dir === 'rtl' ? -1 : 1));
+                });
+            }
+
+            // ── Quantity control ─────────────────────────────────────────────
+            function initQtyControl(stock) {
+                const input = document.getElementById('qty-value');
+                const minBtn = document.getElementById('qty-minus');
+                const maxBtn = document.getElementById('qty-plus');
+
+                function update(val) {
+                    const v = Math.max(1, Math.min(stock, val));
+                    input.value = v;
+                    minBtn.disabled = v <= 1;
+                    maxBtn.disabled = v >= stock;
+                }
+
+                minBtn.addEventListener('click', () => update(+input.value - 1));
+                maxBtn.addEventListener('click', () => update(+input.value + 1));
+                input.addEventListener('change', () => update(+input.value));
+                update(1);
+            }
+
+            // ── Toast ────────────────────────────────────────────────────────
+            let toastTimer;
+            function showToast(name, lang) {
+                const toast = document.getElementById('cart-toast');
+                toast.querySelector('.cart-toast-text').textContent =
+                    lang === 'ar' ? `تمت الإضافة: ${name}` : `Added: ${name}`;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+
+            // ── Load product ─────────────────────────────────────────────────
+            async function loadProduct() {
+                const id = new URLSearchParams(location.search).get('id');
+                if (!id) {
+                    location.href = 'shop.html';
+                    return;
+                }
+
+                try {
+                    const [products, crafts] = await Promise.all([
+                        fetch('data/products.json').then((r) => r.json()),
+                        fetch('data/crafts.json').then((r) => r.json())
+                    ]);
+
+                    const p = products.find((x) => x.id === id);
+                    if (!p) {
+                        location.href = 'shop.html';
+                        return;
+                    }
+
+                    const lang = i18n.currentLang;
+                    const craft = crafts.find((c) => c.slug === p.craftSlug);
+                    const save = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+                    const lowStock = p.stock <= 3;
+
+                    // ── SEO ────────────────────────────────────────────────────
+                    setPageMeta({
+                        title: `${p.name[lang]} — بازار صعيد مصر`,
+                        description: p.description[lang].slice(0, 155),
+                        ogTitle: `${p.name[lang]} — بازار صعيد مصر`,
+                        ogDescription: p.description[lang].slice(0, 155),
+                        ogImage: p.images[0],
+                        ogType: 'product'
+                    });
+                    let can = document.querySelector('link[rel="canonical"]');
+                    if (can) can.href = `https://bazarsa3eed.com/product.html?id=${id}`;
+
+                    // ── HTML ───────────────────────────────────────────────────
+                    document.getElementById('product-content').innerHTML = `
+
+      <!-- Breadcrumb -->
+      <nav class="product-detail-layout product-detail-layout--breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="index.html" class="breadcrumb__link" data-ar="الرئيسية" data-en="Home">${lang === 'ar' ? 'الرئيسية' : 'Home'}</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          <li><a href="shop.html" class="breadcrumb__link" data-ar="المتجر" data-en="Shop">${lang === 'ar' ? 'المتجر' : 'Shop'}</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          <li><a href="shop.html?craft=${p.craftSlug}" class="breadcrumb__link">${p.craftName[lang]}</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          <li class="breadcrumb__current" aria-current="page">${p.name[lang]}</li>
+        </ol>
+      </nav>
+
+      <!-- Main layout -->
+      <div class="product-detail-layout">
+
+        <!-- Image slider -->
+        <div class="product-slider" role="region" aria-label="${lang === 'ar' ? 'معرض صور المنتج' : 'Product image gallery'}">
+          <div class="product-slider-main">
+            <img id="slider-main-img"
+                 src="${p.images[0]}"
+                 alt="${p.name[lang]}"
+                 fetchpriority="high"
+                 width="800" height="800"/>
+            ${
+                p.images.length > 1
+                    ? `
+            <button class="slider-arrow slider-arrow--prev" id="slider-prev"
+                    aria-label="${lang === 'ar' ? 'الصورة السابقة' : 'Previous image'}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="slider-arrow slider-arrow--next" id="slider-next"
+                    aria-label="${lang === 'ar' ? 'الصورة التالية' : 'Next image'}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>`
+                    : ''
+            }
+          </div>
+          ${
+              p.images.length > 1
+                  ? `
+          <div class="product-slider-thumbs" role="list" aria-label="${lang === 'ar' ? 'صور مصغرة' : 'Thumbnails'}">
+            ${p.images
+                .map(
+                    (img, i) => `
+            <button class="product-slider-thumb${i === 0 ? ' active' : ''}" role="listitem"
+                    aria-label="${lang === 'ar' ? 'صورة' : 'Image'} ${i + 1}">
+              <img src="${img}" alt="${p.name[lang]} ${i + 1}" loading="lazy" width="68" height="68"/>
+            </button>`
+                )
+                .join('')}
+          </div>`
+                  : ''
+          }
+        </div>
+
+        <!-- Product info -->
+        <div class="product-info">
+          <a href="shop.html?craft=${p.craftSlug}" class="product-info-craft">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            ${p.craftName[lang]}
+          </a>
+
+          <h1>${p.name[lang]}</h1>
+
+          <div class="product-info-rating" aria-label="${lang === 'ar' ? 'التقييم:' : 'Rating:'} ${p.rating} ${lang === 'ar' ? 'من 5' : 'out of 5'}">
+            <div class="stars" aria-hidden="true">${starsHTML(p.rating)}</div>
+            <span class="rating-count">${p.rating} (${p.reviews} ${lang === 'ar' ? 'تقييم' : 'reviews'})</span>
+          </div>
+
+          <div class="product-info-price-wrap">
+            <span class="product-info-price">${Cart.formatPrice(p.price, lang)}</span>
+            ${
+                p.oldPrice
+                    ? `
+            <span class="product-info-old-price">${Cart.formatPrice(p.oldPrice, lang)}</span>
+            <span class="product-info-save">-${save}%</span>`
+                    : ''
+            }
+          </div>
+
+          <p class="product-info-desc" lang="${lang}">${p.description[lang]}</p>
+
+          <!-- Artisan card -->
+          <a href="artisan-single.html?id=${p.artisanId}" class="product-artisan-card"
+             aria-label="${lang === 'ar' ? 'تعرف على الحرفي' : 'Meet the artisan'}: ${p.artisanName[lang]}">
+            <img src="${p.artisanPortrait}" alt="${p.artisanName[lang]}" loading="lazy" width="48" height="48"/>
+            <div class="product-artisan-info">
+              <p class="product-artisan-label" data-ar="الحرفي" data-en="Artisan">${lang === 'ar' ? 'الحرفي' : 'Artisan'}</p>
+              <p class="product-artisan-name">${p.artisanName[lang]}</p>
+              <p class="product-artisan-region">${p.region[lang]}</p>
+            </div>
+          </a>
+
+          <!-- Quantity + Add to cart -->
+          <div class="product-purchase-wrap">
+            <div class="product-qty-row">
+              <span class="qty-label" data-ar="الكمية:" data-en="Qty:">${lang === 'ar' ? 'الكمية:' : 'Qty:'}</span>
+              <div class="qty-control" role="group" aria-label="${lang === 'ar' ? 'اختر الكمية' : 'Choose quantity'}">
+                <button class="qty-btn" id="qty-minus" aria-label="${lang === 'ar' ? 'إنقاص الكمية' : 'Decrease quantity'}">−</button>
+                <input class="qty-value" id="qty-value" type="number"
+                       min="1" max="${p.stock}" value="1"
+                       aria-label="${lang === 'ar' ? 'الكمية' : 'Quantity'}"/>
+                <button class="qty-btn" id="qty-plus" aria-label="${lang === 'ar' ? 'زيادة الكمية' : 'Increase quantity'}">+</button>
+              </div>
+              <span class="qty-stock${lowStock ? ' qty-stock--low' : ''}">
+                ${
+                    lowStock
+                        ? lang === 'ar'
+                            ? `آخر ${p.stock} قطع فقط!`
+                            : `Only ${p.stock} left!`
+                        : lang === 'ar'
+                          ? `${p.stock} متاح`
+                          : `${p.stock} in stock`
+                }
+              </span>
+            </div>
+
+            <button class="product-add-btn" id="add-to-cart-btn"
+                    aria-label="${lang === 'ar' ? 'أضف إلى السلة' : 'Add to cart'}: ${p.name[lang]}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span data-ar="أضف إلى السلة" data-en="Add to Cart">${lang === 'ar' ? 'أضف إلى السلة' : 'Add to Cart'}</span>
+            </button>
+          </div>
+
+          <!-- Meta -->
+          <ul class="product-meta-list" aria-label="${lang === 'ar' ? 'تفاصيل المنتج' : 'Product details'}">
+            <li class="product-meta-item">
+              <span class="product-meta-key" data-ar="الحرفة" data-en="Craft">${lang === 'ar' ? 'الحرفة' : 'Craft'}</span>
+              <a href="shop.html?craft=${p.craftSlug}" class="product-meta-val">${p.craftName[lang]}</a>
+            </li>
+            <li class="product-meta-item">
+              <span class="product-meta-key" data-ar="المحافظة" data-en="Region">${lang === 'ar' ? 'المحافظة' : 'Region'}</span>
+              <a href="shop.html?region=${p.regionKey}" class="product-meta-val">${p.region[lang]}</a>
+            </li>
+            <li class="product-meta-item">
+              <span class="product-meta-key" data-ar="الصانع" data-en="Artisan">${lang === 'ar' ? 'الصانع' : 'Artisan'}</span>
+              <a href="artisan-single.html?id=${p.artisanId}" class="product-meta-val">${p.artisanName[lang]}</a>
+            </li>
+            <li class="product-meta-item">
+              <span class="product-meta-key" data-ar="المتاح" data-en="Stock">${lang === 'ar' ? 'المتاح' : 'Stock'}</span>
+              <span class="product-meta-val${lowStock ? ' qty-stock--low' : ''}">${p.stock} ${lang === 'ar' ? 'قطعة' : 'pieces'}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Craft story section -->
+      ${
+          craft
+              ? `
+      <section class="craft-story-section" aria-labelledby="craft-story-h2">
+        <div class="craft-story-inner">
+          <div class="craft-story-img reveal">
+            <img src="${craft.coverImage}" alt="${craft.name[lang]}" loading="lazy" width="800" height="600"/>
+          </div>
+          <div class="craft-story-text reveal reveal-delay-2">
+            <span class="eyebrow" data-ar="قصة الحرفة" data-en="The Craft Story">${lang === 'ar' ? 'قصة الحرفة' : 'The Craft Story'}</span>
+            <h2 id="craft-story-h2" data-ar="${craft.name.ar}" data-en="${craft.name.en}">${craft.name[lang]}</h2>
+            <p data-ar="${craft.story.ar}" data-en="${craft.story.en}">${craft.story[lang]}</p>
+            <a href="craft-single.html?slug=${craft.slug}" class="btn btn-outline btn-outline--sand"
+               data-ar="اقرأ المزيد عن الحرفة" data-en="Read More About This Craft">
+              ${lang === 'ar' ? 'اقرأ المزيد عن الحرفة' : 'Read More About This Craft'}
+            </a>
+          </div>
+        </div>
+      </section>`
+              : ''
+      }
+    `;
+
+                    // Show content
+                    document.getElementById('product-skeleton').remove();
+                    document.getElementById('product-content').removeAttribute('hidden');
+
+                    // Init interactions
+                    initSlider(p.images, p.name[lang]);
+                    initQtyControl(p.stock);
+                    initReveal();
+
+                    // Add to cart button
+                    document
+                        .getElementById('add-to-cart-btn')
+                        .addEventListener('click', function () {
+                            const qty = parseInt(document.getElementById('qty-value').value) || 1;
+                            Cart.add(p, qty);
+                            showToast(p.name[lang], lang);
+                            this.classList.add('added');
+                            this.querySelector('span').textContent =
+                                lang === 'ar' ? '✓ تمت الإضافة' : '✓ Added!';
+                            setTimeout(() => {
+                                this.classList.remove('added');
+                                this.querySelector('span').textContent =
+                                    lang === 'ar' ? 'أضف إلى السلة' : 'Add to Cart';
+                            }, 2000);
+                        });
+
+                    // GSAP entrance
+                    gsap.from('.product-info', {
+                        opacity: 0,
+                        x: document.dir === 'rtl' ? -40 : 40,
+                        duration: 0.8,
+                        ease: 'power3.out',
+                        delay: 0.2
+                    });
+                    gsap.from('.product-slider', {
+                        opacity: 0,
+                        x: document.dir === 'rtl' ? 40 : -40,
+                        duration: 0.8,
+                        ease: 'power3.out',
+                        delay: 0.1
+                    });
+
+                    window._onLangChange = () => loadProduct();
+                } catch (e) {
+                    console.error(e);
+                    document.getElementById('product-skeleton').innerHTML = `
+      <div class="state-error--full">
+        <p class="state-error__text">تعذّر تحميل المنتج.</p>
+        <a href="shop.html" class="btn btn-primary">العودة للمتجر</a>
+      </div>`;
+                }
+            }
+
+            loadProduct();
+        </script>
+    </body>
+</html>

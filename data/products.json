@@ -1,0 +1,304 @@
+[
+    {
+        "id": "w1",
+        "slug": "nubian-rug",
+        "name": { "ar": "سجادة نوبية", "en": "Nubian Rug" },
+        "price": 850,
+        "oldPrice": 1100,
+        "description": {
+            "ar": "منسوجة يدوياً من الصوف الطبيعي بألوان النوبة الأصيلة. كل سجادة تستغرق أسبوعاً كاملاً من العمل اليدوي الدقيق. الألوان ثابتة ولا تبهت مع الغسيل.",
+            "en": "Hand-woven from natural wool in authentic Nubian colors. Each rug takes a full week of meticulous handwork. Colors are fixed and do not fade with washing."
+        },
+        "craftSlug": "weaving",
+        "craftName": { "ar": "النسيج", "en": "Weaving" },
+        "artisanId": "1",
+        "artisanName": { "ar": "أم كلثوم حسن", "en": "Om Kalthoum Hassan" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "أسوان", "en": "Aswan" },
+        "regionKey": "aswan",
+        "images": [
+            "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 3,
+        "rating": 4.8,
+        "reviews": 24,
+        "featured": true,
+        "tags": ["نسيج", "نوبي", "يدوي", "صوف"]
+    },
+    {
+        "id": "w2",
+        "slug": "embroidered-cushion",
+        "name": { "ar": "وسادة مطرزة", "en": "Embroidered Cushion" },
+        "price": 320,
+        "oldPrice": null,
+        "description": {
+            "ar": "قطيفة مطرزة بزخارف نوبية أصيلة. الغرز يدوية 100% بخيوط حرير ملونة. تُضفي على أي ركن طابعاً أصيلاً.",
+            "en": "Velvet embroidered with authentic Nubian motifs. 100% hand-stitched with colorful silk threads. Adds an authentic touch to any corner."
+        },
+        "craftSlug": "embroidery",
+        "craftName": { "ar": "التطريز", "en": "Embroidery" },
+        "artisanId": "1",
+        "artisanName": { "ar": "أم كلثوم حسن", "en": "Om Kalthoum Hassan" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "أسوان", "en": "Aswan" },
+        "regionKey": "aswan",
+        "images": [
+            "https://images.unsplash.com/photo-1594938298603-c8148c4b4f7c?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 8,
+        "rating": 4.6,
+        "reviews": 15,
+        "featured": false,
+        "tags": ["تطريز", "نوبي", "وسادة", "قطيفة"]
+    },
+    {
+        "id": "w3",
+        "slug": "pharaonic-chair",
+        "name": { "ar": "كرسي فرعوني", "en": "Pharaonic Chair" },
+        "price": 2400,
+        "oldPrice": 2800,
+        "description": {
+            "ar": "منحوت من خشب الأكاسيا الأقصري بزخارف فرعونية. كل قطعة فريدة ومرقمة. يصلح للديكور والاستخدام اليومي معاً.",
+            "en": "Carved from Luxor acacia wood with pharaonic motifs. Each piece is unique and numbered. Suitable for both decoration and daily use."
+        },
+        "craftSlug": "woodwork",
+        "craftName": { "ar": "الأعمال الخشبية", "en": "Woodwork" },
+        "artisanId": "2",
+        "artisanName": { "ar": "محمود إبراهيم", "en": "Mahmoud Ibrahim" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "الأقصر", "en": "Luxor" },
+        "regionKey": "luxor",
+        "images": [
+            "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 1,
+        "rating": 5.0,
+        "reviews": 8,
+        "featured": true,
+        "tags": ["خشب", "فرعوني", "أكاسيا", "منحوت"]
+    },
+    {
+        "id": "w4",
+        "slug": "wooden-mirror-frame",
+        "name": { "ar": "إطار مرآة خشبي", "en": "Wooden Mirror Frame" },
+        "price": 780,
+        "oldPrice": null,
+        "description": {
+            "ar": "إطار دائري محفور يدوياً بنقوش هندسية إسلامية. الخشب مصقول بزيت الأرز الطبيعي. المرآة مضمنة في السعر.",
+            "en": "Circular frame hand-carved with Islamic geometric patterns. Wood is polished with natural rice oil. Mirror is included in the price."
+        },
+        "craftSlug": "woodwork",
+        "craftName": { "ar": "الأعمال الخشبية", "en": "Woodwork" },
+        "artisanId": "2",
+        "artisanName": { "ar": "محمود إبراهيم", "en": "Mahmoud Ibrahim" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "الأقصر", "en": "Luxor" },
+        "regionKey": "luxor",
+        "images": [
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 4,
+        "rating": 4.7,
+        "reviews": 19,
+        "featured": false,
+        "tags": ["خشب", "إطار", "مرآة", "هندسي"]
+    },
+    {
+        "id": "w5",
+        "slug": "embroidered-dress",
+        "name": { "ar": "ثوب مطرز", "en": "Embroidered Dress" },
+        "price": 1200,
+        "oldPrice": 1500,
+        "description": {
+            "ar": "فستان كتان مطرز يدوياً بخيوط ملونة على الطراز الصعيدي. قابل للغسيل. مقاسات متعددة متاحة عند الطلب.",
+            "en": "Hand-embroidered linen dress with colorful threads in Upper Egyptian style. Machine washable. Multiple sizes available on request."
+        },
+        "craftSlug": "embroidery",
+        "craftName": { "ar": "التطريز", "en": "Embroidery" },
+        "artisanId": "3",
+        "artisanName": { "ar": "فاطمة علي", "en": "Fatima Ali" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "سوهاج", "en": "Sohag" },
+        "regionKey": "sohag",
+        "images": [
+            "https://images.unsplash.com/photo-1594938298603-c8148c4b4f7c?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 2,
+        "rating": 4.9,
+        "reviews": 31,
+        "featured": true,
+        "tags": ["تطريز", "كتان", "فستان", "صعيدي"]
+    },
+    {
+        "id": "w6",
+        "slug": "saidi-scarf",
+        "name": { "ar": "منديل صعيدي", "en": "Upper Egyptian Scarf" },
+        "price": 280,
+        "oldPrice": null,
+        "description": {
+            "ar": "منديل حرير مطرز بزخارف تقليدية صعيدية. خفيف ومريح. يصلح هدية مميزة.",
+            "en": "Silk scarf embroidered with traditional Upper Egyptian patterns. Lightweight and comfortable. Makes a distinguished gift."
+        },
+        "craftSlug": "embroidery",
+        "craftName": { "ar": "التطريز", "en": "Embroidery" },
+        "artisanId": "3",
+        "artisanName": { "ar": "فاطمة علي", "en": "Fatima Ali" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "سوهاج", "en": "Sohag" },
+        "regionKey": "sohag",
+        "images": [
+            "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1594938298603-c8148c4b4f7c?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 12,
+        "rating": 4.5,
+        "reviews": 42,
+        "featured": false,
+        "tags": ["تطريز", "حرير", "منديل", "هدية"]
+    },
+    {
+        "id": "w7",
+        "slug": "water-jug",
+        "name": { "ar": "قلة مياه", "en": "Water Jug (Qulla)" },
+        "price": 180,
+        "oldPrice": null,
+        "description": {
+            "ar": "قلة طينية تقليدية تُبرد الماء طبيعياً دون كهرباء. مصنوعة من طين نيل قنا الأصيل. جربها الأجداد وأثبتت فاعليتها.",
+            "en": "Traditional clay jug that naturally cools water without electricity. Made from authentic Qena Nile clay. Proven by generations."
+        },
+        "craftSlug": "pottery",
+        "craftName": { "ar": "الفخار", "en": "Pottery" },
+        "artisanId": "4",
+        "artisanName": { "ar": "سيد الخولي", "en": "Sayed El-Kholy" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "قنا", "en": "Qena" },
+        "regionKey": "qena",
+        "images": [
+            "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 20,
+        "rating": 4.9,
+        "reviews": 67,
+        "featured": true,
+        "tags": ["فخار", "قلة", "طين", "تقليدي"]
+    },
+    {
+        "id": "w8",
+        "slug": "pottery-set",
+        "name": { "ar": "طقم أواني فخارية", "en": "Pottery Set" },
+        "price": 450,
+        "oldPrice": 600,
+        "description": {
+            "ar": "طقم متكامل من ٥ أواني فخارية بأحجام مختلفة. مناسب للمطبخ والديكور. محروق على الطريقة التقليدية القديمة.",
+            "en": "Complete set of 5 pottery vessels in different sizes. Suitable for kitchen and decoration. Fired in the traditional ancient way."
+        },
+        "craftSlug": "pottery",
+        "craftName": { "ar": "الفخار", "en": "Pottery" },
+        "artisanId": "4",
+        "artisanName": { "ar": "سيد الخولي", "en": "Sayed El-Kholy" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "قنا", "en": "Qena" },
+        "regionKey": "qena",
+        "images": [
+            "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 6,
+        "rating": 4.7,
+        "reviews": 28,
+        "featured": false,
+        "tags": ["فخار", "طقم", "أواني", "مطبخ"]
+    },
+    {
+        "id": "w9",
+        "slug": "mosaic-lamp",
+        "name": { "ar": "مصباح فسيفساء", "en": "Mosaic Lamp" },
+        "price": 950,
+        "oldPrice": null,
+        "description": {
+            "ar": "مصباح زجاجي ملون يرسم أشكالاً ساحرة على الجدران عند الإضاءة. كل قطعة مصنوعة يدوياً وفريدة تماماً. سلك كهربائي مضمن.",
+            "en": "Colorful glass lamp that casts magical patterns on walls when lit. Each piece is entirely handmade and unique. Electrical cord included."
+        },
+        "craftSlug": "glass",
+        "craftName": { "ar": "زجاج الفسيفساء", "en": "Mosaic Glass" },
+        "artisanId": "5",
+        "artisanName": { "ar": "نادية نصر", "en": "Nadia Nasr" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "المنيا", "en": "Minya" },
+        "regionKey": "minya",
+        "images": [
+            "https://images.unsplash.com/photo-1513506003901-1e6a35f56c57?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 5,
+        "rating": 5.0,
+        "reviews": 18,
+        "featured": true,
+        "tags": ["زجاج", "فسيفساء", "مصباح", "ديكور"]
+    },
+    {
+        "id": "w10",
+        "slug": "copper-tray",
+        "name": { "ar": "صينية نحاسية", "en": "Copper Tray" },
+        "price": 650,
+        "oldPrice": 800,
+        "description": {
+            "ar": "صينية نحاسية منقوشة بزخارف إسلامية دقيقة. تُلمَّع يدوياً بمواد طبيعية. مناسبة للتقديم والديكور.",
+            "en": "Copper tray engraved with intricate Islamic motifs. Polished by hand with natural materials. Suitable for serving and decoration."
+        },
+        "craftSlug": "copper",
+        "craftName": { "ar": "النحاسيات", "en": "Copperwork" },
+        "artisanId": "6",
+        "artisanName": { "ar": "حمدي سلامة", "en": "Hamdi Salama" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "أسيوط", "en": "Asyut" },
+        "regionKey": "asyut",
+        "images": [
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1513506003901-1e6a35f56c57?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 7,
+        "rating": 4.8,
+        "reviews": 35,
+        "featured": false,
+        "tags": ["نحاس", "صينية", "إسلامي", "نقش"]
+    },
+    {
+        "id": "w11",
+        "slug": "copper-teapot",
+        "name": { "ar": "إبريق نحاسي", "en": "Copper Teapot" },
+        "price": 420,
+        "oldPrice": null,
+        "description": {
+            "ar": "إبريق نحاسي تقليدي مزخرف يدوياً بأنماط هندسية. سعة لتر كامل. يحافظ على حرارة الشاي لفترة أطول.",
+            "en": "Traditional copper teapot manually decorated with geometric patterns. Full liter capacity. Keeps tea warm longer."
+        },
+        "craftSlug": "copper",
+        "craftName": { "ar": "النحاسيات", "en": "Copperwork" },
+        "artisanId": "6",
+        "artisanName": { "ar": "حمدي سلامة", "en": "Hamdi Salama" },
+        "artisanPortrait": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&auto=format",
+        "region": { "ar": "أسيوط", "en": "Asyut" },
+        "regionKey": "asyut",
+        "images": [
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&auto=format",
+            "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=800&fit=crop&auto=format"
+        ],
+        "stock": 9,
+        "rating": 4.6,
+        "reviews": 22,
+        "featured": false,
+        "tags": ["نحاس", "إبريق", "شاي", "تقليدي"]
+    }
+]

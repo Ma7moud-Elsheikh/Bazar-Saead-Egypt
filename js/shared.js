@@ -136,24 +136,34 @@ function initNavbar() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
 
+    // Force scrolled state if page background is light (not dark hero)
+  const hasDarkHero = document.getElementById('hero-bg') ||
+                      document.querySelector('.craft-hero') ||
+                      document.querySelector('.profile-hero') ||
+                      document.querySelector('.about-hero');
+
+  if (!hasDarkHero) {
+    navbar.classList.add('scrolled');
+  }
+
     let lastY = 0,
         ticking = false;
 
-    window.addEventListener(
-        'scroll',
-        () => {
-            if (ticking) return;
-            requestAnimationFrame(() => {
-                const y = window.scrollY;
-                navbar.classList.toggle('scrolled', y > 80);
-                navbar.classList.toggle('hidden', y > lastY && y > 200);
-                lastY = y;
-                ticking = false;
-            });
-            ticking = true;
-        },
-        { passive: true }
-    );
+    window.addEventListener('scroll', () => {
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      // If no dark hero, always keep scrolled class (never transparent)
+      if (!hasDarkHero) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.toggle('scrolled', y > 80);
+      }
+      navbar.classList.toggle('hidden', y > lastY && y > 200);
+      lastY = y; ticking = false;
+    });
+    ticking = true;
+  }, { passive: true });
 
     // Mobile menu
     const hamburger = document.getElementById('hamburger');
@@ -485,6 +495,7 @@ function renderNavbar() {
         { href: 'index.html', ar: 'الرئيسية', en: 'Home' },
         { href: 'crafts.html', ar: 'الحرف', en: 'Crafts' },
         { href: 'artisans.html', ar: 'الحرفيون', en: 'Artisans' },
+        { href: 'shop.html', ar: 'المتجر', en: 'Shop' },
         { href: 'workshops.html', ar: 'ورش العمل', en: 'Workshops' },
         { href: 'about.html', ar: 'عن البازار', en: 'About' },
         { href: 'contact.html', ar: 'تواصل معنا', en: 'Contact' }
@@ -511,9 +522,23 @@ function renderNavbar() {
     </ul>
   </nav>
   <div class="nav-actions">
-    <a href="login.html" class="btn btn-outline" id="btn-login"
-       data-ar="دخول" data-en="Login">دخول</a>
-    <button id="lang-toggle" aria-label="Switch to English">EN</button>
+    <a href="login.html" class="nav-icon-btn" id="btn-login"
+   aria-label="تسجيل الدخول">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="1.8" width="22" height="22" aria-hidden="true">
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+    <circle cx="12" cy="7" r="4"/>
+  </svg>
+</a>
+       <a href="cart.html" class="nav-cart-link btn" aria-label="سلة المشتريات">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <path d="M16 10a4 4 0 01-8 0"/>
+  </svg>
+  <span id="cart-badge" aria-label="عدد المنتجات في السلة">0</span>
+</a>
+    <button id="lang-toggle" class="nav-lang-btn" aria-label="Switch to English">EN</button>
     <button id="hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
@@ -526,9 +551,10 @@ function renderMobileMenu() {
         { href: 'index.html', ar: 'الرئيسية', en: 'Home' },
         { href: 'crafts.html', ar: 'الحرف', en: 'Crafts' },
         { href: 'artisans.html', ar: 'الحرفيون', en: 'Artisans' },
+        { href: 'shop.html', ar: 'المتجر', en: 'Shop' },
         { href: 'workshops.html', ar: 'ورش العمل', en: 'Workshops' },
         { href: 'about.html', ar: 'عن البازار', en: 'About' },
-        { href: 'contact.html', ar: 'تواصل معنا', en: 'Contact' },
+        { href: 'contact.html', ar: 'تواصل معنا', en: 'Contact' }
         // { href: 'login.html', ar: 'دخول', en: 'Login' },
         // { href: 'register.html', ar: 'إنشاء حساب', en: 'Register' }
     ];
@@ -572,9 +598,9 @@ function renderFooter() {
           </svg>
         </a>
         <a href="#" aria-label="WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12 12 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 2a10 10 0 0 1 8.657 14.998L22 22l-5.002-1.343A10 10 0 1 1 12 2"/>
-          </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12.032 2.018c-5.48 0-9.94 4.46-9.94 9.94 0 1.75.456 3.468 1.322 4.98L2 22l5.236-1.436c1.462.79 3.108 1.206 4.796 1.206 5.48 0 9.94-4.46 9.94-9.94s-4.46-9.94-9.94-9.94zm0 18.36c-1.49 0-2.95-.4-4.22-1.156l-.302-.18-3.107.85.846-3.03-.197-.313c-.84-1.32-1.283-2.85-1.283-4.42 0-4.63 3.77-8.4 8.4-8.4s8.4 3.77 8.4 8.4-3.77 8.4-8.4 8.4zm4.6-6.29c-.25-.125-1.48-.73-1.71-.813-.23-.083-.398-.125-.566.125-.168.25-.65.813-.797.98-.148.166-.296.187-.546.062-.25-.124-1.056-.39-2.01-1.24-.743-.66-1.244-1.476-1.39-1.726-.148-.25-.016-.385.11-.51.114-.113.25-.297.375-.445.125-.15.167-.248.25-.414.084-.166.042-.31-.02-.433-.062-.124-.566-1.363-.775-1.866-.205-.49-.412-.423-.566-.432s-.296-.01-.455-.01c-.158 0-.415.06-.632.298-.217.24-.826.807-.826 1.97 0 1.16.846 2.284.964 2.442.118.158 1.665 2.542 4.034 3.565.564.244 1.004.39 1.347.5.566.18 1.08.154 1.487.093.454-.068 1.48-.605 1.69-1.19.208-.585.208-1.085.146-1.19-.062-.105-.227-.167-.477-.292z"/>
+  </svg>
         </a>
       </div>
     </div>
@@ -592,10 +618,11 @@ function renderFooter() {
     <div class="footer-col">
       <h4 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h4>
       <ul>
-        <li><a href="artisans.html"  data-ar="الحرفيون"   data-en="Artisans">الحرفيون</a></li>
-        <li><a href="workshops.html" data-ar="ورش العمل"  data-en="Workshops">ورش العمل</a></li>
-        <li><a href="about.html"     data-ar="عن البازار" data-en="About">عن البازار</a></li>
-        <li><a href="contact.html"   data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
+        <li><a href="artisans.html" data-ar="الحرفيون" data-en="Artisans">الحرفيون</a></li>
+        <li><a href="workshops.html" data-ar="ورش العمل" data-en="Workshops">ورش العمل</a></li>
+        <li><a href="shop.html" data-ar="المتجر" data-en="Shop">المتجر</a></li>
+        <li><a href="about.html" data-ar="عن البازار" data-en="About">عن البازار</a></li>
+        <li><a href="contact.html" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
       </ul>
     </div>
     <div class="footer-col">

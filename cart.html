@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>سلة المشتريات — بازار صعيد مصر</title>
+        <!-- favicon -->
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+        <meta
+            name="description"
+            content="سلة مشترياتك في بازار صعيد مصر — راجع منتجاتك وأتمم طلبك."
+        />
+        <meta property="og:site_name" content="بازار صعيد مصر" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="سلة المشتريات — بازار صعيد مصر" />
+        <meta
+            property="og:image"
+            content="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&h=630&fit=crop&auto=format"
+        />
+        <meta property="og:url" content="https://bazarsa3eed.com/cart.html" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="theme-color" content="#B87333" />
+        <link rel="canonical" href="https://bazarsa3eed.com/cart.html" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500&display=swap"
+        />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
+        <link rel="stylesheet" href="css/shared.css" />
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link" data-ar="انتقل للمحتوى" data-en="Skip to content">
+            انتقل للمحتوى
+        </a>
+        <div class="grain-overlay" aria-hidden="true"></div>
+        <div id="cursor" aria-hidden="true"></div>
+        <div id="cursor-follower" aria-hidden="true"></div>
+        <div id="page-transition" aria-hidden="true"></div>
+        <header><nav id="navbar" aria-label="التنقل الرئيسي"></nav></header>
+        <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="قائمة التنقل"></div>
+
+        <main id="main-content" class="page-main-padded">
+            <div class="cart-layout" id="cart-root">
+                <!-- Rendered by JS -->
+                <div class="skeleton skeleton--cart-placeholder"></div>
+                <div class="skeleton skeleton--cart-placeholder"></div>
+            </div>
+        </main>
+
+        <footer role="contentinfo"></footer>
+
+        <script src="js/shared.js"></script>
+        <script src="js/cart.js"></script>
+        <script src="js/enhancements.js"></script>
+        <script>
+            // ── Render full cart page ────────────────────────────────────────
+            function renderCart() {
+                const lang = i18n.currentLang;
+                const items = Cart.get();
+                const root = document.getElementById('cart-root');
+
+                // Empty state
+                if (!items.length) {
+                    root.innerHTML = `
+      <div class="cart-empty">
+        <div class="cart-empty-icon" aria-hidden="true">🛍️</div>
+        <h1>${lang === 'ar' ? 'سلتك فارغة' : 'Your cart is empty'}</h1>
+        <p>${lang === 'ar' ? 'لم تضف أي منتجات بعد. استكشف متجرنا واختر ما يعجبك.' : "You haven't added any products yet. Explore our shop and find something you love."}</p>
+        <a href="shop.html" class="btn btn-primary">
+          ${lang === 'ar' ? 'تسوق الآن' : 'Shop Now'}
+        </a>
+      </div>`;
+                    // Animate in
+                    if (typeof gsap !== 'undefined') {
+                        gsap.from('.cart-empty', {
+                            opacity: 0,
+                            y: 30,
+                            duration: 0.7,
+                            ease: 'power2.out'
+                        });
+                    }
+                    return;
+                }
+
+                const subtotal = Cart.subtotal();
+                const shipping = subtotal >= 1000 ? 0 : 80;
+                const total = subtotal + shipping;
+
+                // Items HTML
+                const itemsHTML = items
+                    .map(
+                        (item) => `
+    <article class="cart-item" data-id="${item.id}" aria-label="${item.name[lang]}">
+      <div class="cart-item-img">
+        <a href="product.html?id=${item.id}" aria-label="${lang === 'ar' ? 'عرض المنتج' : 'View product'}: ${item.name[lang]}">
+          <img src="${item.image}" alt="${item.name[lang]}" loading="lazy" width="90" height="90"/>
+        </a>
+      </div>
+      <div class="cart-item-info">
+        <p class="cart-item-craft">${lang === 'ar' ? 'منتج يدوي' : 'Handmade'}</p>
+        <a href="product.html?id=${item.id}" class="cart-item-name">${item.name[lang]}</a>
+        <p class="cart-item-artisan">${lang === 'ar' ? 'بواسطة' : 'By'} ${item.artisan[lang]}</p>
+        <div class="cart-item-actions">
+          <button class="cart-item-remove" data-remove="${item.id}"
+                  aria-label="${lang === 'ar' ? 'إزالة' : 'Remove'}: ${item.name[lang]}">
+            ${lang === 'ar' ? 'إزالة' : 'Remove'}
+          </button>
+        </div>
+      </div>
+      <div class="cart-item-right">
+        <p class="cart-item-price">${Cart.formatPrice(item.price * item.qty, lang)}</p>
+        <div class="qty-control" role="group"
+             aria-label="${lang === 'ar' ? 'كمية' : 'Quantity'}: ${item.name[lang]}">
+          <button class="qty-btn" data-qty-dec="${item.id}"
+                  aria-label="${lang === 'ar' ? 'تقليل الكمية' : 'Decrease'}"
+                  ${item.qty <= 1 ? 'disabled' : ''}>−</button>
+          <input class="qty-value" type="number"
+                 value="${item.qty}" min="1" max="${item.stock}"
+                 data-qty-input="${item.id}"
+                 aria-label="${lang === 'ar' ? 'الكمية' : 'Quantity'}"/>
+          <button class="qty-btn" data-qty-inc="${item.id}"
+                  aria-label="${lang === 'ar' ? 'زيادة الكمية' : 'Increase'}"
+                  ${item.qty >= item.stock ? 'disabled' : ''}>+</button>
+        </div>
+      </div>
+    </article>`
+                    )
+                    .join('');
+
+                root.innerHTML = `
+    <!-- Items column -->
+    <div class="cart-items-wrap">
+      <div class="cart-items-header">
+        <h1>${lang === 'ar' ? 'سلة المشتريات' : 'Shopping Cart'}
+          <span class="cart-count-sub">(${Cart.count()})</span>
+        </h1>
+        <button class="cart-clear-btn" id="cart-clear"
+                aria-label="${lang === 'ar' ? 'إفراغ السلة' : 'Clear cart'}">
+          ${lang === 'ar' ? 'إفراغ السلة' : 'Clear cart'}
+        </button>
+      </div>
+      <div role="list" aria-label="${lang === 'ar' ? 'منتجات السلة' : 'Cart items'}">
+        ${itemsHTML}
+      </div>
+      <div class="cart-continue-wrap">
+        <a href="shop.html" class="cart-continue-btn"
+           data-ar="← متابعة التسوق" data-en="← Continue Shopping">
+          ${lang === 'ar' ? '← متابعة التسوق' : '← Continue Shopping'}
+        </a>
+      </div>
+    </div>
+
+    <!-- Summary column -->
+    <aside class="cart-summary" aria-label="${lang === 'ar' ? 'ملخص الطلب' : 'Order summary'}">
+      <h2>${lang === 'ar' ? 'ملخص الطلب' : 'Order Summary'}</h2>
+      <div class="cart-summary-lines">
+        <div class="cart-summary-line">
+          <span class="cart-summary-line-key">${lang === 'ar' ? 'المجموع الفرعي' : 'Subtotal'}</span>
+          <span class="cart-summary-line-val">${Cart.formatPrice(subtotal, lang)}</span>
+        </div>
+        <div class="cart-summary-line">
+          <span class="cart-summary-line-key">${lang === 'ar' ? 'الشحن' : 'Shipping'}</span>
+          <span class="cart-summary-line-val" class="${shipping === 0 ? 'cart-shipping-free' : ''}">
+            ${
+                shipping === 0
+                    ? lang === 'ar'
+                        ? 'مجاني 🎉'
+                        : 'Free 🎉'
+                    : Cart.formatPrice(shipping, lang)
+            }
+          </span>
+        </div>
+        ${
+            subtotal < 1000
+                ? `
+        <div class="cart-summary-line" class="cart-free-shipping-hint">
+          <span>${lang === 'ar' ? `أضف ${Cart.formatPrice(1000 - subtotal, lang)} للشحن المجاني` : `Add ${Cart.formatPrice(1000 - subtotal, lang)} for free shipping`}</span>
+        </div>`
+                : ''
+        }
+      </div>
+      <div class="cart-summary-total">
+        <span class="cart-summary-total-key">${lang === 'ar' ? 'الإجمالي' : 'Total'}</span>
+        <span class="cart-summary-total-val" id="cart-total-val">${Cart.formatPrice(total, lang)}</span>
+      </div>
+      <button class="cart-checkout-btn" id="checkout-btn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+        ${lang === 'ar' ? 'إتمام الطلب' : 'Checkout'}
+      </button>
+      <a href="shop.html" class="cart-continue-btn">
+        ${lang === 'ar' ? '← متابعة التسوق' : '← Continue Shopping'}
+      </a>
+      <p class="cart-note">
+        ${
+            lang === 'ar'
+                ? '🔒 هذا الموقع نموذج تجريبي — لا يتم معالجة أي مدفوعات حقيقية'
+                : '🔒 This is a demo — no real payments are processed'
+        }
+      </p>
+    </aside>`;
+
+                // ── Wire events ───────────────────────────────────────────────
+                // Remove item
+                root.querySelectorAll('[data-remove]').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.dataset.remove;
+                        // Animate out
+                        const row = btn.closest('.cart-item');
+                        if (typeof gsap !== 'undefined') {
+                            gsap.to(row, {
+                                opacity: 0,
+                                x: 60,
+                                duration: 0.3,
+                                ease: 'power2.in',
+                                onComplete: () => {
+                                    Cart.remove(id);
+                                    renderCart();
+                                }
+                            });
+                        } else {
+                            Cart.remove(id);
+                            renderCart();
+                        }
+                    });
+                });
+
+                // Qty dec/inc
+                root.querySelectorAll('[data-qty-dec]').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.dataset.qtyDec;
+                        const item = Cart.get().find((i) => i.id === id);
+                        if (item) {
+                            Cart.updateQty(id, item.qty - 1);
+                            renderCart();
+                        }
+                    });
+                });
+                root.querySelectorAll('[data-qty-inc]').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.dataset.qtyInc;
+                        const item = Cart.get().find((i) => i.id === id);
+                        if (item) {
+                            Cart.updateQty(id, item.qty + 1);
+                            renderCart();
+                        }
+                    });
+                });
+
+                // Qty input change
+                root.querySelectorAll('[data-qty-input]').forEach((input) => {
+                    input.addEventListener('change', () => {
+                        Cart.updateQty(input.dataset.qtyInput, parseInt(input.value) || 1);
+                        renderCart();
+                    });
+                });
+
+                // Clear all
+                document.getElementById('cart-clear')?.addEventListener('click', () => {
+                    if (
+                        confirm(lang === 'ar' ? 'هل تريد إفراغ السلة؟' : 'Clear your entire cart?')
+                    ) {
+                        Cart.clear();
+                        renderCart();
+                    }
+                });
+
+                // Checkout (demo)
+                document.getElementById('checkout-btn')?.addEventListener('click', () => {
+                    const btn = document.getElementById('checkout-btn');
+                    btn.textContent = lang === 'ar' ? 'جارٍ المعالجة...' : 'Processing...';
+                    btn.disabled = true;
+                    setTimeout(() => {
+                        btn.textContent = lang === 'ar' ? '✓ تم استلام طلبك!' : '✓ Order received!';
+                        btn.style.background = 'var(--olive)';
+                    }, 1500);
+                });
+
+                // Animate in
+                if (typeof gsap !== 'undefined') {
+                    gsap.from('.cart-item', {
+                        opacity: 0,
+                        y: 24,
+                        duration: 0.5,
+                        stagger: 0.08,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform'
+                    });
+                    gsap.from('.cart-summary', {
+                        opacity: 0,
+                        y: 24,
+                        duration: 0.6,
+                        ease: 'power2.out',
+                        delay: 0.2,
+                        clearProps: 'opacity,transform'
+                    });
+                }
+            }
+
+            // ── Re-render on lang change ─────────────────────────────────────
+            window._onLangChange = () => renderCart();
+
+            // ── Listen for cart updates from other tabs ──────────────────────
+            window.addEventListener('cart:updated', () => renderCart());
+            window.addEventListener('storage', (e) => {
+                if (e.key === Cart.KEY) renderCart();
+            });
+
+            // ── Init ─────────────────────────────────────────────────────────
+            document.addEventListener('DOMContentLoaded', () => renderCart());
+        </script>
+    </body>
+</html>

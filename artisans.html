@@ -19,18 +19,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
-            media="print"
-            onload="this.media = 'all'"
-        />
-        <noscript>
-            <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
-            />
-        </noscript>
         <link rel="stylesheet" href="css/shared.css" />
         <link rel="canonical" href="https://bazarsa3eed.com/artisans.html" />
         <meta
@@ -147,6 +135,7 @@
 
         <script src="js/shared.js"></script>
         <script src="js/enhancements.js"></script>
+        <script src="js/cart.js"></script>
         <script>
             gsap.registerPlugin(ScrollTrigger);
             let allArtisans = [];
@@ -156,6 +145,11 @@
   <article class="artisan-card-full">
     <a href="artisan-single.html?id=${a.id}" aria-label="${a.name[lang]}">
       <div class="artisan-img-wrap">
+        <div class="artisan-badge">
+    ${lang === 'ar'
+        ? 'حرفي تراثي'
+        : 'Heritage Artisan'}
+</div>
         <img class="artisan-img-inner" src="${a.portrait}" alt="${a.name[lang]}" loading="lazy"/>
         <div class="artisan-img-overlay">
           <h3 class="artisan-card-name" data-ar="${a.name.ar}" data-en="${a.name.en}">${a.name[lang]}</h3>
@@ -163,10 +157,27 @@
         </div>
       </div>
       <p class="artisan-card-story" data-ar="${a.story.ar}" data-en="${a.story.en}">${a.story[lang]}</p>
-      <span class="artisan-card-cta">
-        <span data-ar="عرض الأعمال" data-en="View Works">${lang === 'ar' ? 'عرض الأعمال' : 'View Works'}</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
+      <div class="artisan-card-footer">
+
+    <span class="artisan-card-note">
+        ${lang === 'ar'
+            ? 'حرفي معتمد'
+            : 'Verified Artisan'}
+    </span>
+
+    <span class="artisan-card-cta">
+        <span
+            data-ar="عرض الأعمال"
+            data-en="View Works"
+        >
+            ${lang === 'ar'
+                ? 'عرض الأعمال'
+                : 'View Works'}
+        </span>
+        <i class="fa-solid fa-arrow-right"></i>
+    </span>
+
+</div>
     </a>
   </article>`;
             }
