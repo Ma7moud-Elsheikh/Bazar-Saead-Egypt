@@ -17,6 +17,19 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.9/lenis.min.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+            media="print"
+            onload="this.media = 'all'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+            />
+        </noscript>
         <link rel="stylesheet" href="css/shared.css" />
         <link rel="canonical" href="https://bazarsa3eed.com/crafts.html" />
         <meta
@@ -56,11 +69,19 @@
                 <div id="crafts-container">
                     <div class="crafts-masonry">
                         <div class="skeleton skeleton--craft-masonry"></div>
-                        <div class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"></div>
-                        <div class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"></div>
+                        <div
+                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"
+                        ></div>
+                        <div
+                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"
+                        ></div>
                         <div class="skeleton skeleton--craft-masonry"></div>
-                        <div class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"></div>
-                        <div class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"></div>
+                        <div
+                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-mid"
+                        ></div>
+                        <div
+                            class="skeleton skeleton--craft-masonry skeleton--craft-masonry-last"
+                        ></div>
                     </div>
                 </div>
             </div>
@@ -81,7 +102,9 @@
                     const lang = window.i18n?.currentLang || 'ar';
 
                     container.innerHTML = `<div class="crafts-masonry">
-                        ${crafts.map((c, i) => `
+                        ${crafts
+                            .map(
+                                (c, i) => `
                             <article class="craft-full-card" id="${c.slug}">
                                 <a href="craft-single.html?slug=${c.slug}" aria-label="${c.name[lang]}">
                                     <div class="craft-img-wrap">
@@ -100,7 +123,9 @@
                                     ${lang === 'ar' ? 'تسوق الحرفة' : 'Shop This Craft'}
                                 </a>
                             </article>
-                        `).join('')}
+                        `
+                            )
+                            .join('')}
                     </div>`;
 
                     if (typeof initReveal === 'function') initReveal();
@@ -121,7 +146,10 @@
                     if (location.hash) {
                         const el = document.querySelector(location.hash);
                         if (el) {
-                            setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 400);
+                            setTimeout(
+                                () => el.scrollIntoView({ behavior: 'smooth', block: 'center' }),
+                                400
+                            );
                         }
                     }
 
@@ -136,7 +164,8 @@
 
                             const btnOutline = card.querySelector('.btn-outline');
                             if (btnOutline) {
-                                btnOutline.textContent = lang === 'ar' ? 'تسوق الحرفة' : 'Shop This Craft';
+                                btnOutline.textContent =
+                                    lang === 'ar' ? 'تسوق الحرفة' : 'Shop This Craft';
                             }
 
                             const ov = card.querySelector('.craft-img-overlay span');
@@ -144,7 +173,8 @@
                         });
                     };
                 } catch (e) {
-                    container.innerHTML = '<p class="state-error state-error--padded">تعذّر تحميل البيانات</p>';
+                    container.innerHTML =
+                        '<p class="state-error state-error--padded">تعذّر تحميل البيانات</p>';
                 }
             }
             loadCrafts();

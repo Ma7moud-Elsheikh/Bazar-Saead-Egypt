@@ -522,7 +522,7 @@ function renderNavbar() {
     </ul>
   </nav>
   <div class="nav-actions">
-    <a href="login.html" class="nav-icon-btn" id="btn-login"
+    <a href="login.html" class="nav-icon-btn btn" id="btn-login"
    aria-label="تسجيل الدخول">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
        stroke-width="1.8" width="22" height="22" aria-hidden="true">
@@ -538,7 +538,7 @@ function renderNavbar() {
   </svg>
   <span id="cart-badge" aria-label="عدد المنتجات في السلة">0</span>
 </a>
-    <button id="lang-toggle" class="nav-lang-btn" aria-label="Switch to English">EN</button>
+    <button id="lang-toggle" class="nav-lang-btn btn" aria-label="Switch to English">EN</button>
     <button id="hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
